@@ -259,6 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 801630045}
   controller: {fileID: 834136392015161627}
+  isSelected: 0
 --- !u!1 &1158553211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8234152741063976309, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
@@ -289,6 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1158553213}
   controller: {fileID: 834136392015161627}
+  isSelected: 0
 --- !u!1 &1315551939 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8654966077546727703, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
@@ -319,6 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1315551941}
   controller: {fileID: 834136392015161627}
+  isSelected: 0
 --- !u!1 &1677680128
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +604,18 @@ PrefabInstance:
     - target: {fileID: 1104643168534453616, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711701751402529382, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711701751402529382, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711701751402529382, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4799175160841969509, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
       propertyPath: m_Enabled
