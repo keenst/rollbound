@@ -7,8 +7,14 @@ public class RewardButton : MonoBehaviour
 {
     public Button button;
     public RewardController controller;
+    public bool isSelected = false;
+
+    
+
     void Start()
     {
+        
+
         Button btn = button.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
     }
@@ -21,6 +27,16 @@ public class RewardButton : MonoBehaviour
 
     void TaskOnClick()
     {
-        Debug.Log("You have clicked the button!");
+        if (!isSelected)
+        {
+            button.image.color = Color.red;
+            isSelected = true;
+        }
+        else
+        {
+            button.image.color = Color.white;
+            isSelected = false;
+        }
+
     }
 }
