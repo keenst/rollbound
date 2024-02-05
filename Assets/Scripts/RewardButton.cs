@@ -13,8 +13,6 @@ public class RewardButton : MonoBehaviour
 
     void Start()
     {
-        
-
         Button btn = button.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
     }
