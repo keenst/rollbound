@@ -8,12 +8,12 @@ public class RewardButton : MonoBehaviour
     public Button button;
     public RewardController controller;
     public bool isSelected = false;
-
-    
+    private RewardController controll;
 
     void Start()
     {
         Button btn = button.GetComponent<Button>();
+        controll = controller.GetComponent<RewardController>();
         btn.onClick.AddListener(TaskOnClick);
     }
 
@@ -25,15 +25,22 @@ public class RewardButton : MonoBehaviour
 
     void TaskOnClick()
     {
-        if (!isSelected)
+        if (gameObject.CompareTag("RewConf"))
         {
-            button.image.color = Color.red;
-            isSelected = true;
+            controll.CloseReward();
         }
         else
         {
-            button.image.color = Color.white;
-            isSelected = false;
+            if (!isSelected)
+            {
+                button.image.color = Color.red;
+                isSelected = true;
+            }
+            else
+            {
+                button.image.color = Color.white;
+                isSelected = false;
+            }
         }
 
     }

@@ -21,7 +21,7 @@ public class ShopController : MonoBehaviour
         
     }
 
-    // Gnerera abilities
+    // Generate abilities
     public void GenerateShop()
     {
         double fallOff = 0.4;
