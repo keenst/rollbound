@@ -17,16 +17,14 @@ public class RewardButton : MonoBehaviour
         btn.onClick.AddListener(TaskOnClick);
     }
 
-    void Update()
-    {
-        
-    }
+    // Abilities depending on a list of them I suppose? Either in RewardController or another script, we shall see.
 
 
     void TaskOnClick()
     {
         if (gameObject.CompareTag("RewConf"))
         {
+            // TODO: Save the marked abilities and call korvens method with necessary info, disenchant the rest depending on rarity.
             controll.CloseReward();
         }
         else
@@ -35,6 +33,7 @@ public class RewardButton : MonoBehaviour
             {
                 button.image.color = Color.red;
                 isSelected = true;
+                // Check whatever ability this is and use it in the confirm block of code to save yippie eine ja cola
             }
             else
             {
