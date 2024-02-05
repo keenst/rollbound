@@ -8,4 +8,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/Eleonora.unity
+    guid: ccf47d24f747ed942b57519ea85733d8
+  - enabled: 1
+    path: Assets/Scenes/levelScenes/Level01.unity
+    guid: a1e71e2837721194ea31c8019ec1a9dd
+  - enabled: 1
+    path: Assets/Scenes/levelScenes/Level02.unity
+    guid: f61d9b71e693ae049979df9803309a4e
+  - enabled: 1
+    path: Assets/Scenes/Valdemar.unity
+    guid: 46064ae57e98e3e4c8e5f347c7354df3
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 832946247d7c9094c8ee0f26afd95ebe, type: 2}
