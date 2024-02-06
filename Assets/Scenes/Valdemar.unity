@@ -874,7 +874,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 261706516111428773, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 332036807554404430, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
       propertyPath: m_LocalScale.x
@@ -1014,7 +1014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4799175160841969509, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6135573833036818237, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1130,8 +1130,7 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontStyle
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8758274212977078599, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
 --- !u!224 &834136392015161626 stripped
 RectTransform:
@@ -1153,8 +1152,8 @@ MonoBehaviour:
   buttons:
   - {fileID: 1315551941}
   - {fileID: 1158553213}
-  - {fileID: 1518864331}
   - {fileID: 801630045}
+  confirmButton: {fileID: 1518864331}
 --- !u!1001 &2819651585694416430
 PrefabInstance:
   m_ObjectHideFlags: 0
