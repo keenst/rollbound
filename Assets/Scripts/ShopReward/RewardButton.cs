@@ -26,7 +26,7 @@ public class RewardButton : MonoBehaviour
         
         if (gameObject.CompareTag("RewConf"))
         {
-            // TODO: Save the marked abilities and call korvens method with necessary info, disenchant the rest depending on rarity.
+            // CustomiceDice(ability 1, ability 2, ability 3);
             controll.CloseReward();
         }
         else

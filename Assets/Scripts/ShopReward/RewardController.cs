@@ -20,11 +20,14 @@ public class RewardController : MonoBehaviour
     {
         confirmButton.gameObject.SetActive(true);
 
+        Ability[] displayedAbilities = new Ability[3];
+
         for (int i = 0; i<3; i++)
         {
             Ability ability = GenerateCard();
             buttons[i].gameObject.SetActive(true);
             buttons[i].GetComponentInChildren<Text>().text = ability.Name;
+            displayedAbilities[i] = ability;
         }
     }
 
