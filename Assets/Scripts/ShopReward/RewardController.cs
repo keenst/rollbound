@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,28 +10,29 @@ public class RewardController : MonoBehaviour
 {
     public Button[] buttons;
     public Button confirmButton;
+    public Ability[] displayedAbilities = new Ability[3];
+    public Ability[] abilitiesToSend = new Ability[3];
 
     void Start()
     {
         OpenReward();
     }
 
-    // Reward(x,y,z) or make logic inside RewardController, that is the question!
     public void OpenReward()
     {
         confirmButton.gameObject.SetActive(true);
-
-        Ability[] displayedAbilities = new Ability[3];
+        abilitiesToSend = new Ability[3];
 
         for (int i = 0; i<3; i++)
         {
             Ability ability = GenerateCard();
             buttons[i].gameObject.SetActive(true);
+            buttons[i].name = Convert.ToString(i);
             buttons[i].GetComponentInChildren<Text>().text = ability.Name;
             displayedAbilities[i] = ability;
         }
     }
-
+    
     public Ability GenerateCard()
     {
         Random rng = new();
@@ -50,11 +52,17 @@ public class RewardController : MonoBehaviour
         }
     }
 
+    // 
     public void CloseReward()
     {
         foreach (var x in buttons)
         {
             x.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            print(abilitiesToSend[i]);
         }
         confirmButton.gameObject.SetActive(false);
     }
