@@ -6,23 +6,33 @@ using UnityEngine.SceneManagement;
 
 public class EnterShop : MonoBehaviour
 {
+    bool isChangeing = false;
     public int sceneBuildIndex;
+    [SerializeField] Animator ani;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
+            ani.SetBool("changeScene", true);
             print("Swiching scene to " + sceneBuildIndex);
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+            isChangeing = true;
         }
+    }
+    private void changeScene()
+    {
+        SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+        print("did done it");
     }
     void Start()
     {
-        
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if(isChangeing == true)
+        {
+            isChangeing = false;
+            print("will it done did it");
+            Invoke("changeScene", 2);
+        }
     }
 }
