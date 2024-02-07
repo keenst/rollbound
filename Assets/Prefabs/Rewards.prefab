@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 942750396381676136}
+  - component: {fileID: 834136392015161627}
   m_Layer: 5
   m_Name: Rewards
   m_TagString: Untagged
@@ -30,8 +31,8 @@ RectTransform:
   m_Children:
   - {fileID: 332036807554404430}
   - {fileID: 1104643168534453616}
-  - {fileID: 6135573833036818237}
   - {fileID: 8127668055460844031}
+  - {fileID: 6135573833036818237}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -40,6 +41,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &834136392015161627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958598372628379304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc46d93ff1677f94a81b31b328129ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 4711701751402529382}
+  - {fileID: 6578999474526185910}
+  - {fileID: 5420656098823681640}
+  confirmButton: {fileID: 7662294228703666146}
 --- !u!1 &1484863542485018738
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,10 +126,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 18
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -119,7 +137,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'Confirm
+
+'
 --- !u!1 &3329654666042885827
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,10 +208,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -212,9 +232,10 @@ GameObject:
   - component: {fileID: 5277101772094973822}
   - component: {fileID: 4895049392458845363}
   - component: {fileID: 7662294228703666146}
+  - component: {fileID: 1518864334}
   m_Layer: 5
-  m_Name: Button (Legacy)
-  m_TagString: Untagged
+  m_Name: Confirm
+  m_TagString: RewConf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,18 +247,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6238753961577356391}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1202266748680177028}
   m_Father: {fileID: 942750396381676136}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 3.751587, y: -300}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5277101772094973822
@@ -322,6 +343,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1518864334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6238753961577356391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f136513e9f66bc4c9e26e982ead6744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 7662294228703666146}
+  controller: {fileID: 834136392015161627}
+  isSelected: 0
 --- !u!1 &7206228039069349760
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,10 +426,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -414,6 +450,7 @@ GameObject:
   - component: {fileID: 3325894022046645377}
   - component: {fileID: 5516715122353831568}
   - component: {fileID: 6578999474526185910}
+  - component: {fileID: 1158553216}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -430,7 +467,7 @@ RectTransform:
   m_GameObject: {fileID: 8234152741063976309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7673556288450000617}
@@ -524,6 +561,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1158553216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234152741063976309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f136513e9f66bc4c9e26e982ead6744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 6578999474526185910}
+  controller: {fileID: 834136392015161627}
+  isSelected: 0
 --- !u!1 &8529176296103137411
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,10 +644,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -616,6 +668,7 @@ GameObject:
   - component: {fileID: 165714672917016562}
   - component: {fileID: 3208391375920606155}
   - component: {fileID: 4711701751402529382}
+  - component: {fileID: 1315551944}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -632,7 +685,7 @@ RectTransform:
   m_GameObject: {fileID: 8654966077546727703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8941533991524725788}
@@ -641,7 +694,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.751587, y: 48.90143}
+  m_AnchoredPosition: {x: -280, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &165714672917016562
@@ -726,6 +779,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1315551944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654966077546727703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f136513e9f66bc4c9e26e982ead6744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 4711701751402529382}
+  controller: {fileID: 834136392015161627}
+  isSelected: 0
 --- !u!1 &8728756516083588335
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +806,7 @@ GameObject:
   - component: {fileID: 3308783287660144424}
   - component: {fileID: 4171038388715219194}
   - component: {fileID: 5420656098823681640}
+  - component: {fileID: 801630048}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -754,16 +823,16 @@ RectTransform:
   m_GameObject: {fileID: 8728756516083588335}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1244162892580884537}
   m_Father: {fileID: 942750396381676136}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 280, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3308783287660144424
@@ -848,3 +917,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &801630048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728756516083588335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f136513e9f66bc4c9e26e982ead6744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 5420656098823681640}
+  controller: {fileID: 834136392015161627}
+  isSelected: 0
