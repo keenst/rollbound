@@ -12,6 +12,7 @@ public class RewardController : MonoBehaviour
     public Button confirmButton;
     public Ability[] displayedAbilities = new Ability[3];
     public Ability[] abilitiesToSend = new Ability[3];
+    public Ability[] abilitiesToSell = new Ability[3];
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class RewardController : MonoBehaviour
             buttons[i].name = Convert.ToString(i);
             buttons[i].GetComponentInChildren<Text>().text = ability.Name;
             displayedAbilities[i] = ability;
+            abilitiesToSell[i] = ability;
         }
     }
     
@@ -52,7 +54,7 @@ public class RewardController : MonoBehaviour
         }
     }
 
-    // 
+    
     public void CloseReward()
     {
         foreach (var x in buttons)
@@ -60,9 +62,28 @@ public class RewardController : MonoBehaviour
             x.gameObject.SetActive(false);
         }
 
+        foreach (var kraft in abilitiesToSell)
+        {
+            switch (kraft.Rarity)
+            {
+                case CardRarity.Common:
+                    print(5);
+                    break;
+
+                case CardRarity.Rare:
+                    print(10);
+                    break;
+
+                case CardRarity.Legendary:
+                    print(30);
+                    break;
+            }
+        }
+
         for (int i = 0; i < 3; i++)
         {
-            print(abilitiesToSend[i]);
+            //print(abilitiesToSend[i]);
+            print(abilitiesToSell[i]);
         }
         confirmButton.gameObject.SetActive(false);
     }
