@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class RewardButton : MonoBehaviour
 {
@@ -18,13 +19,14 @@ public class RewardButton : MonoBehaviour
     }
 
     // Abilities depending on a list of them I suppose? Either in RewardController or another script, we shall see.
-
+    
 
     void TaskOnClick()
     {
+        
         if (gameObject.CompareTag("RewConf"))
         {
-            // TODO: Save the marked abilities and call korvens method with necessary info, disenchant the rest depending on rarity.
+            // CustomiceDice(ability 1, ability 2, ability 3);
             controll.CloseReward();
         }
         else
