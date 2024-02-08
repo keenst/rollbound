@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
@@ -9,7 +8,7 @@ public static class Abilities
 	private static Random rng = new();
 	private static bool _isInitialized;
 
-	public static Ability GetFromName(String name)
+	public static Ability GetFromName(string name)
 	{
 		TryInit();
 
@@ -21,7 +20,7 @@ public static class Abilities
 			}
 		}
 
-		Debug.Log($"No ability with name {name} found");
+		Debug.LogError($"No ability with name {name} found");
 		return null;
 	}
 
@@ -42,7 +41,8 @@ public static class Abilities
 		return matchingRarity[randomIndex];
 	}
 
-	private static void Init() {
+	private static void Init()
+	{
 		_abilities.Add(new PhysicalAbility("Bite", CardRarity.Common, 5));
 		_abilities.Add(new PhysicalAbility("Rock Throw", CardRarity.Rare, 8));
 		_abilities.Add(new MagicalAbility("Ignite", CardRarity.Common));
