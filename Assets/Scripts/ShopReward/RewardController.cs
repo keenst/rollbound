@@ -11,18 +11,20 @@ public class RewardController : MonoBehaviour
     public Button[] buttons;
     public Button confirmButton;
     public Ability[] displayedAbilities = new Ability[3];
-    public Ability[] abilitiesToSend = new Ability[3];
-    public Ability[] abilitiesToSell = new Ability[3];
+    public bool[] shouldKeepAbilities = {true, true, true};
+
+    private Player player;
 
     void Start()
     {
-        OpenReward();
+        OpenReward(new Player());
     }
 
-    public void OpenReward()
+    public void OpenReward(Player player)
     {
+        this.player = player;
         confirmButton.gameObject.SetActive(true);
-        abilitiesToSend = new Ability[3];
+
 
         for (int i = 0; i<3; i++)
         {
@@ -31,7 +33,7 @@ public class RewardController : MonoBehaviour
             buttons[i].name = Convert.ToString(i);
             buttons[i].GetComponentInChildren<Text>().text = ability.Name;
             displayedAbilities[i] = ability;
-            abilitiesToSell[i] = ability;
+
         }
     }
     
@@ -62,29 +64,29 @@ public class RewardController : MonoBehaviour
             x.gameObject.SetActive(false);
         }
 
-        foreach (var kraft in abilitiesToSell)
+
+        int i = 0;
+        while (i < 3)
         {
-            switch (kraft.Rarity)
+            if (shouldKeepAbilities[i])
             {
-                case CardRarity.Common:
-                    print(5);
-                    break;
-
-                case CardRarity.Rare:
-                    print(10);
-                    break;
-
-                case CardRarity.Legendary:
-                    print(30);
-                    break;
+                switch (displayedAbilities[i].Rarity)
+                {
+                    case CardRarity.Common:
+                        player.DieFragments += 5;
+                        break;
+                    case CardRarity.Rare:
+                        player.DieFragments += 10;
+                        break;
+                    case CardRarity.Legendary:
+                        player.DieFragments += 30;
+                        break;
+                }
             }
+            i++;
         }
 
-        for (int i = 0; i < 3; i++)
-        {
-            //print(abilitiesToSend[i]);
-            print(abilitiesToSell[i]);
-        }
+        print(player.DieFragments);
         confirmButton.gameObject.SetActive(false);
     }
 }

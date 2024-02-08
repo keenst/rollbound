@@ -30,52 +30,46 @@ public class RewardButton : MonoBehaviour
         }
         else
         {
-            if (!isSelected)
-            {
-                button.image.color = Color.red;
-                isSelected = true;
-                switch (button.name)
-                {
-                    case "0":
-                        controller.abilitiesToSend[0] = controller.displayedAbilities[0];
-                        controller.abilitiesToSell[0] = null;
-                        print("Ability 1 selected");
-                        break;
-
-                    case "1":
-                        controller.abilitiesToSend[1] = controller.displayedAbilities[1];
-                        controller.abilitiesToSell[1] = null;
-                        print("Ability 2 selected");
-                        break;
-
-                    case "2":
-                        controller.abilitiesToSend[2] = controller.displayedAbilities[2];
-                        controller.abilitiesToSell[2] = null;
-                        print("Ability 3 selected");
-                        break;
-                }
-            }
-            else
+            if (isSelected)
             {
                 button.image.color = Color.white;
                 isSelected = false;
                 switch (button.name)
                 {
                     case "0":
-                        controller.abilitiesToSell[0] = controller.abilitiesToSend[0];
-                        controller.abilitiesToSend[0] = null;
+                        controller.shouldKeepAbilities[0] = false;
+                        print("Ability 1 selected");
+                        break;
+
+                    case "1":
+                        controller.shouldKeepAbilities[1] = false;
+                        print("Ability 2 selected");
+                        break;
+
+                    case "2":
+                        controller.shouldKeepAbilities[2] = false;
+                        print("Ability 3 selected");
+                        break;
+                }
+            }
+            else
+            {
+                button.image.color = Color.red;
+                isSelected = true;
+                switch (button.name)
+                {
+                    case "0":
+                        controller.shouldKeepAbilities[0] = true;
                         print("Ability 1 de-selected");
                         break;
 
                     case "1":
-                        controller.abilitiesToSell[1] = controller.abilitiesToSend[1];
-                        controller.abilitiesToSend[1] = null;
+                        controller.shouldKeepAbilities[0] = true;
                         print("Ability 2 de-selected");
                         break;
 
                     case "2":
-                        controller.abilitiesToSell[2] = controller.abilitiesToSend[2];
-                        controller.abilitiesToSend[2] = null;
+                        controller.shouldKeepAbilities[0] = true;
                         print("Ability 3 de-selected");
                         break;
                 }
