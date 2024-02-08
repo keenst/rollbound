@@ -2,14 +2,20 @@ public class Fighter
 {
 	public Dice Dice;
 	public float HP;
+	public string Name;
+	
+	private float _maxHp;
 
 	// Defensive status
 	private bool _isBlockingDamage;
 	private DamageType _blockingDamageType;
 
-	public Fighter(Dice dice)
+	public Fighter(Dice dice, float hp, float maxHp, string name)
 	{
 		Dice = dice;
+		HP = hp;
+		_maxHp = maxHp;
+		Name = name;
 	}
 
 	public void ApplyDamage(float damage, DamageType type)
