@@ -51,8 +51,8 @@ public class CombatSystem : MonoBehaviour
 
 		Dice enemyDice = playerDice;
 
-		Fighter player = new(playerDice);
-		Fighter enemy = new(enemyDice);
+		Fighter player = new(playerDice, 20, 20, "Player");
+		Fighter enemy = Enemies.GetFromName("Test");
 
 		OnStart(player, enemy);
 	}
@@ -163,10 +163,16 @@ public class CombatSystem : MonoBehaviour
 
 			if (ability == null)
 			{
-				Debug.Log("Something went wrong when getting ability from dice");
+				Debug.LogError("Something went wrong when getting ability from dice");
 			}
 
 			dieButtons[i].text = ability.Name;
+
+			// Disable magical die if a magical ability has already been selected
+			if (!_isFirstPick && _firstPick is MagicalAbility)
+			{
+				diceObjects[1].SetActive(false);
+			}
 		}
 	}
 

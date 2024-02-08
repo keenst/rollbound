@@ -1,11 +1,9 @@
-using System;
-
 public class Ability
 {
-	public virtual String Name { get; }
+	public virtual string Name { get; }
 	public virtual CardRarity Rarity { get; }
 
-	public Ability(String name, CardRarity rarity)
+	public Ability(string name, CardRarity rarity)
 	{
 		Name = name;
 		Rarity = rarity;
@@ -16,7 +14,7 @@ public class PhysicalAbility : Ability
 {
 	private float _damage;
 
-	public PhysicalAbility(String name, CardRarity rarity, float damage) : base(name, rarity)
+	public PhysicalAbility(string name, CardRarity rarity, float damage) : base(name, rarity)
 	{
 		_damage = damage;
 	}
@@ -40,7 +38,7 @@ public class MagicalAbility : Ability
 
 	public Element Element;
 
-	public MagicalAbility(String name, CardRarity rarity) : base(name, rarity)
+	public MagicalAbility(string name, CardRarity rarity) : base(name, rarity)
 	{
 	}
 }
@@ -49,7 +47,7 @@ public class DefensiveAbility : Ability
 {
 	private DefensiveType _defensiveType;
 
-	public DefensiveAbility(String name, CardRarity rarity, DefensiveType defensiveType) : base(name, rarity)
+	public DefensiveAbility(string name, CardRarity rarity, DefensiveType defensiveType) : base(name, rarity)
 	{
 		_defensiveType = defensiveType;
 	}
