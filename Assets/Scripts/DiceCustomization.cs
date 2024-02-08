@@ -61,23 +61,13 @@ public class DiceCustomization : MonoBehaviour
     }
     private void ChangeColor(Color color)
     {
-        GameObject.Find("Side 1").GetComponent<Image>().color = color;
-        GameObject.Find("Side 2").GetComponent<Image>().color = color;
-        GameObject.Find("Side 3").GetComponent<Image>().color = color;
-        GameObject.Find("Side 4").GetComponent<Image>().color = color;
-        GameObject.Find("Side 5").GetComponent<Image>().color = color;
-        GameObject.Find("Side 6").GetComponent<Image>().color = color;
+        GameObject.Find("New ability").GetComponent<Image>().color = color;
         GameObject.Find("Cancel").GetComponent<Image>().color = Color.white;
         GameObject.Find("Confirm").GetComponent<Image>().color = Color.white;
     }
     private void ChangeText(string text)
     {
-        GameObject.Find("Side 1").GetComponentInChildren<Text>().text = text;
-        GameObject.Find("Side 2").GetComponentInChildren<Text>().text = text;
-        GameObject.Find("Side 3").GetComponentInChildren<Text>().text = text;
-        GameObject.Find("Side 4").GetComponentInChildren<Text>().text = text;
-        GameObject.Find("Side 5").GetComponentInChildren<Text>().text = text;
-        GameObject.Find("Side 6").GetComponentInChildren<Text>().text = text;
+        GameObject.Find("New ability").GetComponentInChildren<Text>().text = text;
     }
     public void RandomiseAbility()
     {
