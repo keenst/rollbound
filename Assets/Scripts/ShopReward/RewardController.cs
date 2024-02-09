@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
 using Random = System.Random;
 
@@ -13,11 +15,13 @@ public class RewardController : MonoBehaviour
     public Ability[] displayedAbilities = new Ability[3];
     public bool[] shouldKeepAbilities = {true, true, true};
 
+    public DiceCustomization diceCustomiser;
     private Player player;
 
     void Start()
     {
         OpenReward(new Player());
+        
     }
 
     public void OpenReward(Player player)
@@ -83,6 +87,7 @@ public class RewardController : MonoBehaviour
                         break;
                 }
             }
+            
             i++;
         }
 

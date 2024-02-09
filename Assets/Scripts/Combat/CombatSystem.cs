@@ -22,41 +22,6 @@ public class CombatSystem : MonoBehaviour
 	private Ability _firstPick;
 	private Ability _secondPick;
 
-	// TODO: Remove
-	public void Start()
-	{
-		Dice playerDice = new(
-			new Die(
-				Abilities.GetFromName("Bite"),
-				Abilities.GetFromName("Bite"),
-				Abilities.GetFromName("Bite"),
-				Abilities.GetFromName("Rock Throw"),
-				Abilities.GetFromName("Rock Throw"),
-				Abilities.GetFromName("Rock Throw")),
-			new Die(
-				Abilities.GetFromName("Ignite"),
-				Abilities.GetFromName("Ignite"),
-				Abilities.GetFromName("Ignite"),
-				Abilities.GetFromName("Freeze"),
-				Abilities.GetFromName("Freeze"),
-				Abilities.GetFromName("Freeze")),
-			new Die(
-				Abilities.GetFromName("Heal"),
-				Abilities.GetFromName("Heal"),
-				Abilities.GetFromName("Heal"),
-				Abilities.GetFromName("Block"),
-				Abilities.GetFromName("Block"),
-				Abilities.GetFromName("Block"))
-		);
-
-		Dice enemyDice = playerDice;
-
-		Fighter player = new(playerDice, 20, 20, "Player");
-		Fighter enemy = Enemies.GetFromName("Test");
-
-		OnStart(player, enemy);
-	}
-
 	public void OnStart(Fighter player, Fighter enemy)
 	{
 		_player = player;
