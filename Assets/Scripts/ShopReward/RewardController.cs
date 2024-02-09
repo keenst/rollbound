@@ -14,6 +14,7 @@ public class RewardController : MonoBehaviour
     public Button confirmButton;
     public Ability[] displayedAbilities = new Ability[3];
     public bool[] shouldKeepAbilities = {true, true, true};
+    public RewardButton[] rewardButtons = new RewardButton[3];
 
     public DiceCustomization diceCustomiser;
     private Player player;
@@ -28,7 +29,10 @@ public class RewardController : MonoBehaviour
     {
         this.player = player;
         confirmButton.gameObject.SetActive(true);
-
+        for (int i = 0; i < shouldKeepAbilities.Length; i++)
+        {
+            shouldKeepAbilities[i] = true;
+        }
 
         for (int i = 0; i<3; i++)
         {
@@ -60,21 +64,33 @@ public class RewardController : MonoBehaviour
         }
     }
 
-    
+
     public void CloseReward()
     {
+        for (int i = 0; i < 3; i++)
+        {
+            buttons[i].image.color = Color.white;
+            buttons[i].gameObject.SetActive(false);
+            rewardButtons[i].isSelected = false;
+        }
+
         foreach (var x in buttons)
         {
+            x.image.color = Color.white;
             x.gameObject.SetActive(false);
         }
 
-
-        int i = 0;
-        while (i < 3)
+        int go = 0;
+        while (go < 3)
         {
-            if (shouldKeepAbilities[i])
+            if (shouldKeepAbilities[go])
             {
-                switch (displayedAbilities[i].Rarity)
+                // customiseDice(displayedAbilities[go]);
+            }
+
+            if (!shouldKeepAbilities[go])
+            {
+                switch (displayedAbilities[go].Rarity)
                 {
                     case CardRarity.Common:
                         player.DieFragments += 5;
@@ -87,11 +103,12 @@ public class RewardController : MonoBehaviour
                         break;
                 }
             }
-            
-            i++;
+
+            go++;
         }
 
         print(player.DieFragments);
         confirmButton.gameObject.SetActive(false);
+        //OpenReward(player);
     }
 }

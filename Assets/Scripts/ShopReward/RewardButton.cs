@@ -22,10 +22,10 @@ public class RewardButton : MonoBehaviour
 
     void TaskOnClick()
     {
-        //                     Reward Confirm
+                            // Reward Confirm
         if (gameObject.CompareTag("RewConf"))
         {
-            // CustomiceDice(ability 1, ability 2, ability 3);
+
             controll.CloseReward();
         }
         else
@@ -34,6 +34,28 @@ public class RewardButton : MonoBehaviour
             {
                 button.image.color = Color.white;
                 isSelected = false;
+                switch (button.name)
+                {
+                    case "0":
+                        controller.shouldKeepAbilities[0] = true;
+                        //print("Ability 1 de-selected");
+                        break;
+
+                    case "1":
+                        controller.shouldKeepAbilities[1] = true;
+                        //print("Ability 2 de-selected");
+                        break;
+
+                    case "2":
+                        controller.shouldKeepAbilities[2] = true;
+                        //print("Ability 3 de-selected");
+                        break;
+                }
+            }
+            else
+            {
+                button.image.color = Color.red;
+                isSelected = true;
                 switch (button.name)
                 {
                     case "0":
@@ -49,28 +71,6 @@ public class RewardButton : MonoBehaviour
                     case "2":
                         controller.shouldKeepAbilities[2] = false;
                         print("Ability 3 selected");
-                        break;
-                }
-            }
-            else
-            {
-                button.image.color = Color.red;
-                isSelected = true;
-                switch (button.name)
-                {
-                    case "0":
-                        controller.shouldKeepAbilities[0] = true;
-                        print("Ability 1 de-selected");
-                        break;
-
-                    case "1":
-                        controller.shouldKeepAbilities[0] = true;
-                        print("Ability 2 de-selected");
-                        break;
-
-                    case "2":
-                        controller.shouldKeepAbilities[0] = true;
-                        print("Ability 3 de-selected");
                         break;
                 }
             }
