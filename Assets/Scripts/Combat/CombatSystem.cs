@@ -13,6 +13,8 @@ public class CombatSystem : MonoBehaviour
 	public Healthbar playerHealthbar;
 	public Healthbar enemyHealthbar;
 
+	private Player _playerStats;
+
 	private Fighter _player;
 	private Fighter _enemy;
 
@@ -26,44 +28,10 @@ public class CombatSystem : MonoBehaviour
 	private Ability _firstPick;
 	private Ability _secondPick;
 
-	// TODO: Remove
-	public void Start()
+	public void OnStart(Player player, Fighter enemy)
 	{
-		Dice playerDice = new(
-			new Die(
-				Abilities.GetFromName("Bite"),
-				Abilities.GetFromName("Bite"),
-				Abilities.GetFromName("Bite"),
-				Abilities.GetFromName("Rock Throw"),
-				Abilities.GetFromName("Rock Throw"),
-				Abilities.GetFromName("Rock Throw")),
-			new Die(
-				Abilities.GetFromName("Ignite"),
-				Abilities.GetFromName("Ignite"),
-				Abilities.GetFromName("Ignite"),
-				Abilities.GetFromName("Freeze"),
-				Abilities.GetFromName("Freeze"),
-				Abilities.GetFromName("Freeze")),
-			new Die(
-				Abilities.GetFromName("Heal"),
-				Abilities.GetFromName("Heal"),
-				Abilities.GetFromName("Heal"),
-				Abilities.GetFromName("Block"),
-				Abilities.GetFromName("Block"),
-				Abilities.GetFromName("Block"))
-		);
-
-		Dice enemyDice = playerDice;
-
-		Fighter player = new(playerDice, 20, 20, "Player");
-		Fighter enemy = Enemies.GetFromName("Test");
-
-		OnStart(player, enemy);
-	}
-
-	public void OnStart(Fighter player, Fighter enemy)
-	{
-		_player = player;
+		_playerStats = player;
+		_player = player.GetFighter();
 		_enemy = enemy;
 
 		PlayerTurn();
@@ -237,6 +205,11 @@ public class CombatSystem : MonoBehaviour
 		_isFirstPick = true;
 
 		UpdateInfo();
+	}
+
+	private void EndBattle()
+	{
+		_playerStats.HP = _player.HP;
 	}
 
 	private void UpdateInfo()
