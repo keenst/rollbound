@@ -44,4 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a856ae7d10b1f24b96ede2efb9a77e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dictionary: []
+  _dictionary:
+  - Name: Bite
+    Sprite: {fileID: 21300000, guid: cb83b90e14c4eef42a4acdce172a92eb, type: 3}
+  - Name: Freeze
+    Sprite: {fileID: 21300000, guid: e235136aac538254ab3ae434c71b2355, type: 3}
+  - Name: Heal
+    Sprite: {fileID: 21300000, guid: fad40fb2998d19b478c9af8569ccd600, type: 3}
+  - Name: Ignite
+    Sprite: {fileID: 21300000, guid: 4962bcbb4374dfc45989c585a34d329b, type: 3}
+  - Name: Block
+    Sprite: {fileID: 21300000, guid: 94772560e57bf534fa78d454b840c8d9, type: 3}
+  - Name: Rock Throw
+    Sprite: {fileID: 21300000, guid: 34afd516d82ecc541b2a814ee9582971, type: 3}
