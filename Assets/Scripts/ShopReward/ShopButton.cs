@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ReRoll : MonoBehaviour
+public class ShopButton : MonoBehaviour
 {
     public Button button;
-
-    public GameObject shop;
-    ShopController shopKontroll;
+    public ShopController controller;
+    public bool isSelected = false;
+    private ShopController controll;
 
     void Start()
     {
         Button btn = button.GetComponent<Button>();
+        controll = controller.GetComponent<ShopController>();
         btn.onClick.AddListener(TaskOnClick);
-
-        shopKontroll= shop.GetComponent<ShopController>();
     }
 
     void TaskOnClick()
     {
-        shopKontroll.OpenShop();
+
     }
+
 }

@@ -10,26 +10,25 @@ public class ShopController : MonoBehaviour
     public Button[] commonButtons;
     public Button[] rareButtons;
     public Button[] epicButtons;
+    public List<Ability> abilitiesMarked = new();
 
     void Start()
     {
-        GenerateShop();
+        OpenShop();
     }
 
-    void Update()
-    {
-        
-    }
 
     // Generate abilities
-    public void GenerateShop()
+    public void OpenShop()
     {
+        abilitiesMarked.Clear();
         double fallOff = 0.4;
         Random rng = new();
         foreach (var x in commonButtons)
         {
             if (rng.NextDouble() <= 0.6 + fallOff)
             {
+
                 x.gameObject.SetActive(true);
                 fallOff -= 0.2;
             }
@@ -67,6 +66,15 @@ public class ShopController : MonoBehaviour
             {
                 x.gameObject.SetActive(false);
             }
+        }
+    }
+
+    public void CloseShop()
+    {
+        // Player.dieFragments -= totalCost;
+        foreach (var ability in abilitiesMarked)
+        {
+            // CustomiseDie(ability);
         }
     }
 }
