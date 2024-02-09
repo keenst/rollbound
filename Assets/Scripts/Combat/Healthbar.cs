@@ -18,7 +18,7 @@ public class Healthbar : MonoBehaviour
 
 	public void UpdateHealth(float hp, float maxHp)
 	{
-		float fillAmount = MaxLength * (hp / maxHp);
+		float fillAmount = MaxLength * (MathF.Max(hp, 0) / maxHp);
 
 		Vector3 scale = health.transform.localScale;
 		health.transform.localScale = new Vector3(fillAmount, scale.y, scale.z);
