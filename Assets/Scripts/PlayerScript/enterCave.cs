@@ -9,6 +9,8 @@ public class enterCave : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject lv;
+    [SerializeField] private GameObject combat;
+
     bool change = false;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -26,7 +28,16 @@ public class enterCave : MonoBehaviour
         cam.SetActive(true);
         startBg.SetActive(false);
         lv.SetActive(true);
+        combat.SetActive(true);
     }
+    public void combatEnd()
+    {
+        player.SetActive(true);
+        cam.SetActive(false);
+        lv.SetActive(false);
+        combat.SetActive(false);
+    }
+
     void Start()
     {
         
