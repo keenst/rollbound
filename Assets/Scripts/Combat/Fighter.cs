@@ -2,9 +2,8 @@ public class Fighter
 {
 	public Dice Dice;
 	public float HP;
+	public float MaxHP;
 	public string Name;
-	
-	private float _maxHp;
 
 	// Defensive status
 	private bool _isBlockingDamage;
@@ -14,7 +13,7 @@ public class Fighter
 	{
 		Dice = dice;
 		HP = hp;
-		_maxHp = maxHp;
+		MaxHP = maxHp;
 		Name = name;
 	}
 

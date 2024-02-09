@@ -6,8 +6,12 @@ public class CombatSystem : MonoBehaviour
 {
 	public Text[] dieButtons;
 	public GameObject[] diceObjects;
-	public Text playerHPText;
-	public Text enemyHPText;
+
+	public Text playerNameText;
+	public Text enemyNameText;
+
+	public Healthbar playerHealthbar;
+	public Healthbar enemyHealthbar;
 
 	private Fighter _player;
 	private Fighter _enemy;
@@ -21,6 +25,41 @@ public class CombatSystem : MonoBehaviour
 	// The player's picked abilities
 	private Ability _firstPick;
 	private Ability _secondPick;
+
+	// TODO: Remove
+	public void Start()
+	{
+		Dice playerDice = new(
+			new Die(
+				Abilities.GetFromName("Bite"),
+				Abilities.GetFromName("Bite"),
+				Abilities.GetFromName("Bite"),
+				Abilities.GetFromName("Rock Throw"),
+				Abilities.GetFromName("Rock Throw"),
+				Abilities.GetFromName("Rock Throw")),
+			new Die(
+				Abilities.GetFromName("Ignite"),
+				Abilities.GetFromName("Ignite"),
+				Abilities.GetFromName("Ignite"),
+				Abilities.GetFromName("Freeze"),
+				Abilities.GetFromName("Freeze"),
+				Abilities.GetFromName("Freeze")),
+			new Die(
+				Abilities.GetFromName("Heal"),
+				Abilities.GetFromName("Heal"),
+				Abilities.GetFromName("Heal"),
+				Abilities.GetFromName("Block"),
+				Abilities.GetFromName("Block"),
+				Abilities.GetFromName("Block"))
+		);
+
+		Dice enemyDice = playerDice;
+
+		Fighter player = new(playerDice, 20, 20, "Player");
+		Fighter enemy = Enemies.GetFromName("Test");
+
+		OnStart(player, enemy);
+	}
 
 	public void OnStart(Fighter player, Fighter enemy)
 	{
@@ -202,8 +241,11 @@ public class CombatSystem : MonoBehaviour
 
 	private void UpdateInfo()
 	{
-		playerHPText.text = $"Player HP: {_player.HP}";
-		enemyHPText.text = $"Enemy HP: {_enemy.HP}";
+		playerNameText.text = _player.Name;
+		enemyNameText.text = _enemy.Name;
+
+		playerHealthbar.UpdateHealth(_player.HP, _player.MaxHP);
+		enemyHealthbar.UpdateHealth(_enemy.HP, _enemy.MaxHP);
 	}
 
 	private void PrintInfo()
