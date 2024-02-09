@@ -4,7 +4,7 @@ public class Player
 
 	public int DieFragments;
 	public Dice Dice;
-	public float HP;
+	public float HP = MaxHP;
 
 	public Fighter GetFighter()
 	{

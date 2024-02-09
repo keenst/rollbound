@@ -751,6 +751,7 @@ MonoBehaviour:
   - {fileID: 1047755625}
   - {fileID: 1317841971063744084}
   - {fileID: 224316628086154755}
+  enterCaveScript: {fileID: 0}
   playerNameText: {fileID: 1018870262}
   enemyNameText: {fileID: 894800730}
   playerHealthbar: {fileID: 2406978153818551144}
