@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class DiceCustomization : MonoBehaviour
 {
+    private int selectedSideIndex = -1;
+    public Ability newAbility;
+    public Ability currentAbility;
+
     void Start()
     {
         Dice dice = new(
@@ -31,17 +35,16 @@ public class DiceCustomization : MonoBehaviour
                 Abilities.GetFromName("Block"),
                 Abilities.GetFromName("Block"))
             );
-        
         RandomiseAbility();
     }
 
 
     void Update()
     {
-    
+        
     }
 
-    public void CustomiseDice(Ability newAbility)
+    public void CustomiseDice(Ability newAbility, int selectedSideIndex)
     {
         if (newAbility is PhysicalAbility)
         {
@@ -59,11 +62,29 @@ public class DiceCustomization : MonoBehaviour
             ChangeText("Defensive ability");
         }
     }
+    public void newAbilityCTM(Ability currentAbility)
+    {
+        if (currentAbility is PhysicalAbility)
+        {
+            ChangeColor(Color.red);
+            ChangeText("Physical ability");
+        }
+        if (currentAbility is MagicalAbility)
+        {
+            ChangeColor(Color.blue);
+            ChangeText("Magical ability");
+        }
+        if (currentAbility is DefensiveAbility)
+        {
+            ChangeColor(Color.green);
+            ChangeText("Defensive ability");
+        }
+    }
     private void ChangeColor(Color color)
     {
         GameObject.Find("New ability").GetComponent<Image>().color = color;
-        GameObject.Find("Cancel").GetComponent<Image>().color = Color.white;
-        GameObject.Find("Confirm").GetComponent<Image>().color = Color.white;
+        GameObject.Find("Side " + selectedSideIndex).GetComponent<Image>().color = color;
+
     }
     private void ChangeText(string text)
     {
@@ -71,12 +92,29 @@ public class DiceCustomization : MonoBehaviour
     }
     public void RandomiseAbility()
     {
-        Ability newAbility = Abilities.GetFromRarity(CardRarity.Common);
-        CustomiseDice(newAbility);
+        currentAbility = Abilities.GetFromRarity(CardRarity.Common);
+        Debug.Log("Current ability updated to " + currentAbility);
+        newAbilityCTM(currentAbility);
     }
-    public void ReRollAbility()
+    public void RegisterSelectedSide(int sideIndex)
     {
-        RandomiseAbility();
-        Debug.Log("Hello");
+        selectedSideIndex = sideIndex;
+        Debug.Log("Selected side: " + sideIndex);
     }
+    public void confirmation()
+    {            
+        if (selectedSideIndex != -1)
+        {        
+            Ability newAbility = currentAbility;
+            CustomiseDice(newAbility, selectedSideIndex);
+            Debug.Log("Ability on side " + selectedSideIndex + " updated to " + newAbility);
+            selectedSideIndex = -1;            
+            RandomiseAbility();            
+        }
+        else
+        {
+            Debug.Log("No side selected to update ability.");
+        }            
+    }
+
 }
