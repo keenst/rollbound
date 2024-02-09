@@ -2,23 +2,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct NameTexPair
+public struct NameSpritePair
 {
 	public string Name;
-	public Texture2D Texture;
+	public Sprite Sprite;
 }
 
 public class AbilityImages : MonoBehaviour
 {
-	public List<NameTexPair> _dictionary = new();
+	public List<NameSpritePair> _dictionary = new();
 
-	public Texture2D Get(string name)
+	public Sprite Get(string name)
 	{
-		foreach (NameTexPair pair in _dictionary)
+		foreach (NameSpritePair pair in _dictionary)
 		{
 			if (pair.Name == name)
 			{
-				return pair.Texture;
+				return pair.Sprite;
 			}
 		}
 
