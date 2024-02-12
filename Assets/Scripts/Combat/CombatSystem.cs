@@ -40,7 +40,7 @@ public class CombatSystem : MonoBehaviour
 	{
 		_playerStats = player;
 		_player = player.GetFighter();
-		_enemy = enemy;
+		_enemy = enemy.Copy();
 
 		UpdateInfo();
 

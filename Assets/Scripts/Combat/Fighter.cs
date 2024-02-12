@@ -17,6 +17,11 @@ public class Fighter
 		Name = name;
 	}
 
+	public Fighter Copy()
+	{
+		return new Fighter(Dice, HP, MaxHP, Name);
+	}
+
 	public void ApplyDamage(float damage, DamageType type)
 	{
 		HP -= damage;
