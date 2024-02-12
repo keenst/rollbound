@@ -10,7 +10,10 @@ public class enterCave : MonoBehaviour
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject lv;
     [SerializeField] private GameObject combat;
-    [SerializeField] private GameObject inCave;
+    [SerializeField] private GameObject nextPart;
+    [SerializeField] private GameObject enemy;
+    public Player _player = new();
+    public CombatSystem combSystm;
 
     bool outofComb = false;
     bool intoComb = false;
@@ -31,6 +34,7 @@ public class enterCave : MonoBehaviour
         startBg.SetActive(false);
         lv.SetActive(true);
         combat.SetActive(true);
+        combSystm.OnStart(_player, Enemies.GetFromName("Test"));
     }
     public void combatEnd()
     {
@@ -38,7 +42,6 @@ public class enterCave : MonoBehaviour
         ani.SetBool("changeScene", true);
         print("1");
         Update();
-
     }
     private void combEndChange()
     {
@@ -47,8 +50,9 @@ public class enterCave : MonoBehaviour
         cam.SetActive(false);
         lv.SetActive(false);
         combat.SetActive(false);
-        inCave.SetActive(true);
+        nextPart.SetActive(true);
         print("3");
+        player.transform.position = new Vector2(0, 0);
     }
 
     void Start()

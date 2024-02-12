@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dictionary:
-  - Name: Zombie1A
-    AudioClip: {fileID: 8300000, guid: 017f90a60925c8c4c820404bb70bfa29, type: 3}
-  - Name: Zombie1B
-    AudioClip: {fileID: 8300000, guid: ba35edb1d93cffe499fee17584a9f08e, type: 3}
+  - Name: Zombie
+    AudioClips:
+    - {fileID: 8300000, guid: ba35edb1d93cffe499fee17584a9f08e, type: 3}
+    - {fileID: 8300000, guid: 218d054a0910bcf4484ed635b5df3ef5, type: 3}
+    - {fileID: 8300000, guid: 357211d40502ca94d99862d875b6df38, type: 3}
