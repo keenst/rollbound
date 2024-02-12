@@ -1900,6 +1900,7 @@ MonoBehaviour:
   cam: {fileID: 708062387}
   lv: {fileID: 278000949}
   combat: {fileID: 1783997762}
+  inCave: {fileID: 0}
 --- !u!58 &964642125
 CircleCollider2D:
   m_ObjectHideFlags: 0

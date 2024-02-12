@@ -34,6 +34,8 @@ public class CombatSystem : MonoBehaviour
 	private Ability _firstPick;
 	private Ability _secondPick;
 
+	private static Random _rng = new();
+
 	public void OnStart(Player player, Fighter enemy)
 	{
 		_playerStats = player;
@@ -41,6 +43,8 @@ public class CombatSystem : MonoBehaviour
 		_enemy = enemy;
 
 		PlayerTurn();
+
+		PlaySound(enemy.Name);
 	}
 
 	public void OnPickDie(DieType dieType)
@@ -126,11 +130,9 @@ public class CombatSystem : MonoBehaviour
 
 	private void ThrowDice()
 	{
-		Random rng = new();
-
 		for (int i = 0; i < _dieSidesUp.Length; i++)
 		{
-			_dieSidesUp[i] = rng.Next(0, 6);
+			_dieSidesUp[i] = _rng.Next(0, 6);
 
 			Ability ability = i switch {
 				0 => _player.Dice.GetDie(DieType.Physical).abilities[_dieSidesUp[i]],
@@ -174,8 +176,6 @@ public class CombatSystem : MonoBehaviour
 	{
 		DisableDice();
 
-		Random rng = new();
-
 		Ability[] abilities = new Ability[2];
 
 		// Get 2 random abilities
@@ -186,11 +186,11 @@ public class CombatSystem : MonoBehaviour
 
 			for (int j = 0; j < dieSidesUp.Length; j++)
 			{
-				dieSidesUp[j] = rng.Next(6);
+				dieSidesUp[j] = _rng.Next(6);
 			}
 
 			// Pick random die
-			int die = rng.Next(2);
+			int die = _rng.Next(2);
 
 			// Get ability
 			Ability ability = _enemy.Dice.GetDie((DieType)die).abilities[dieSidesUp[die]];
@@ -248,7 +248,7 @@ public class CombatSystem : MonoBehaviour
 
 	private void PlaySound(string name)
 	{
-		AudioClip audioClip = soundEffects.Get(name);
-		audioSource.PlayOneShot(audioClip);
+		AudioClip[] audioClips = soundEffects.Get(name);
+		audioSource.PlayOneShot(audioClips[_rng.Next(audioClips.Length)]);
 	}
 }
