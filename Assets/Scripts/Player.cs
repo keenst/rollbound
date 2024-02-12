@@ -30,7 +30,6 @@ public class Player
 					Abilities.GetFromName("Block"),
 					Abilities.GetFromName("Block"),
 					Abilities.GetFromName("Block")));
-		HP = 20;
 	}
 
 	public Fighter GetFighter()

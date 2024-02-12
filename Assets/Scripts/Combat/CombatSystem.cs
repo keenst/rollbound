@@ -42,9 +42,9 @@ public class CombatSystem : MonoBehaviour
 		_player = player.GetFighter();
 		_enemy = enemy;
 
-		PlayerTurn();
+		UpdateInfo();
 
-		PlaySound(enemy.Name);
+		PlayerTurn();
 	}
 
 	public void OnPickDie(DieType dieType)
