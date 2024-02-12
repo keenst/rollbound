@@ -10,20 +10,22 @@ public class enterCave : MonoBehaviour
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject lv;
     [SerializeField] private GameObject combat;
+    [SerializeField] private GameObject inCave;
 
-    bool change = false;
+    bool outofComb = false;
+    bool intoComb = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player")
         {
-            change = true;
+            intoComb = true;
             ani.SetBool("changeScene", true);
-
         }
     }
     private void active()
     {
+        ani.SetBool("changeScene", false);
         player.SetActive(false);
         cam.SetActive(true);
         startBg.SetActive(false);
@@ -32,10 +34,21 @@ public class enterCave : MonoBehaviour
     }
     public void combatEnd()
     {
+        outofComb = true;
+        ani.SetBool("changeScene", true);
+        print("1");
+        Update();
+
+    }
+    private void combEndChange()
+    {
+        ani.SetBool("changeScene", false);
         player.SetActive(true);
         cam.SetActive(false);
         lv.SetActive(false);
         combat.SetActive(false);
+        inCave.SetActive(true);
+        print("3");
     }
 
     void Start()
@@ -45,10 +58,16 @@ public class enterCave : MonoBehaviour
 
     void Update()
     {
-        if(change == true)
+        if (intoComb == true)
         {
-            change = false;
+            intoComb = false;
             Invoke("active", 1);
+        }
+        if (outofComb == true)
+        {
+            outofComb = false;
+            Invoke("combEndChange", 1);
+            print("2");
         }
     }
 }
