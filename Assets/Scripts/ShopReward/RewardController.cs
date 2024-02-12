@@ -15,6 +15,7 @@ public class RewardController : MonoBehaviour
     public Ability[] displayedAbilities = new Ability[3];
     public bool[] shouldKeepAbilities = {true, true, true};
     public RewardButton[] rewardButtons = new RewardButton[3];
+    public AbilityImages abilityImages;
 
     public DiceCustomization diceCustomiser;
     private Player player;
@@ -41,7 +42,8 @@ public class RewardController : MonoBehaviour
             buttons[i].name = Convert.ToString(i);
             buttons[i].GetComponentInChildren<Text>().text = ability.Name;
             displayedAbilities[i] = ability;
-
+            Sprite texture = abilityImages.Get(ability.Name);
+            buttons[i].image.sprite = texture;
         }
     }
     
