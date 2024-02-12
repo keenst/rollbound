@@ -11,6 +11,7 @@ public class ShopController : MonoBehaviour
     public Button[] rareButtons;
     public Button[] epicButtons;
     public List<Ability> abilitiesMarked = new();
+    public Sprite hand;
 
     void Start()
     {
@@ -71,10 +72,16 @@ public class ShopController : MonoBehaviour
 
     public void CloseShop()
     {
-        // Player.dieFragments -= totalCost;
+        //Player.dieFragments -= totalCost;
         foreach (var ability in abilitiesMarked)
         {
             // CustomiseDie(ability);
         }
+    }
+
+
+    public void MoveHand(Transform transform)
+    {
+        
     }
 }
