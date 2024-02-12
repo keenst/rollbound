@@ -16,6 +16,9 @@ public class CombatSystem : MonoBehaviour
 	public Healthbar playerHealthbar;
 	public Healthbar enemyHealthbar;
 
+	public SoundEffects soundEffects;
+	public AudioSource audioSource;
+
 	private Player _playerStats;
 
 	private Fighter _player;
@@ -30,42 +33,6 @@ public class CombatSystem : MonoBehaviour
 	// The player's picked abilities
 	private Ability _firstPick;
 	private Ability _secondPick;
-
-	// TODO: Remove
-	public void Start()
-	{
-		Dice playerDice = new(
-			new Die(
-				Abilities.GetFromName("Bite"),
-				Abilities.GetFromName("Bite"),
-				Abilities.GetFromName("Bite"),
-				Abilities.GetFromName("Rock Throw"),
-				Abilities.GetFromName("Rock Throw"),
-				Abilities.GetFromName("Rock Throw")),
-			new Die(
-				Abilities.GetFromName("Ignite"),
-				Abilities.GetFromName("Ignite"),
-				Abilities.GetFromName("Ignite"),
-				Abilities.GetFromName("Freeze"),
-				Abilities.GetFromName("Freeze"),
-				Abilities.GetFromName("Freeze")),
-			new Die(
-				Abilities.GetFromName("Heal"),
-				Abilities.GetFromName("Heal"),
-				Abilities.GetFromName("Heal"),
-				Abilities.GetFromName("Block"),
-				Abilities.GetFromName("Block"),
-				Abilities.GetFromName("Block"))
-		);
-
-		Dice enemyDice = playerDice;
-
-		Player player = new();
-		player.Dice = playerDice;
-		Fighter enemy = Enemies.GetFromName("Test");
-
-		OnStart(player, enemy);
-	}
 
 	public void OnStart(Player player, Fighter enemy)
 	{
@@ -277,5 +244,11 @@ public class CombatSystem : MonoBehaviour
 
 		DamageType enemyBlockingType;
 		if (_enemy.IsBlockingDamage(out enemyBlockingType)) Debug.Log("Enemy is blocking damage");
+	}
+
+	private void PlaySound(string name)
+	{
+		AudioClip audioClip = soundEffects.Get(name);
+		audioSource.PlayOneShot(audioClip);
 	}
 }
