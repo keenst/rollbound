@@ -146,6 +146,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[6].Name
+      value: Stab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[7].Name
+      value: Slash
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[8].Name
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[9].Name
+      value: Punch
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[10].Name
+      value: I-Will
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[11].Name
+      value: Crossbow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[6].Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b2e8f8636bec77d42866f61b739193a3, type: 3}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[7].Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dba88c4ffe8ea53419629a44b1248697, type: 3}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[8].Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4abba5e5138fb354ea320db37d128408, type: 3}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[9].Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 98c23a6dfa6e61744b760a9032e3ec54, type: 3}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[10].Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d7437e31b10d6d43b880c6c3b999397, type: 3}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[11].Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1448b4aad833a2a45a7e081a800ca851, type: 3}
     - target: {fileID: 1523003564898239088, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
       propertyPath: m_RootOrder
       value: 3

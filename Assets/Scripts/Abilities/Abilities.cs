@@ -43,15 +43,25 @@ public static class Abilities
 
 	private static void Init()
 	{
-		_abilities.Add(new PhysicalAbility("Bite", CardRarity.Common, 5));
-		_abilities.Add(new PhysicalAbility("Rock Throw", CardRarity.Rare, 8));
-		_abilities.Add(new MagicalAbility("Ignite", CardRarity.Common));
-		_abilities.Add(new MagicalAbility("Freeze", CardRarity.Common));
-		_abilities.Add(new DefensiveAbility("Heal", CardRarity.Rare, DefensiveType.Block));
-		_abilities.Add(new DefensiveAbility("Block", CardRarity.Legendary, DefensiveType.Block));
-	}
+        _abilities.Add(new PhysicalAbility("Punch", CardRarity.Common, 3));
+        _abilities.Add(new PhysicalAbility("Bite", CardRarity.Common, 5));
+        _abilities.Add(new PhysicalAbility("Crossbow", CardRarity.Rare, 5));
+        _abilities.Add(new PhysicalAbility("Slash", CardRarity.Rare, 5));
+        _abilities.Add(new PhysicalAbility("Stab", CardRarity.Legendary, 9));
+        _abilities.Add(new PhysicalAbility("Rock Throw", CardRarity.Rare, 8));
 
-	private static void TryInit()
+        _abilities.Add(new MagicalAbility("Poison", CardRarity.Common));
+        _abilities.Add(new MagicalAbility("Ignite", CardRarity.Common));
+		_abilities.Add(new MagicalAbility("Freeze", CardRarity.Common));
+
+        _abilities.Add(new DefensiveAbility("Heal", CardRarity.Common, DefensiveType.Block));
+		_abilities.Add(new DefensiveAbility("Block", CardRarity.Rare, DefensiveType.Block));
+        _abilities.Add(new DefensiveAbility("I-Will", CardRarity.Rare, DefensiveType.Block));
+
+
+    }
+
+    private static void TryInit()
 	{
 		if (!_isInitialized)
 		{

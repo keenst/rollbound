@@ -12,8 +12,8 @@ public class ShopButton : MonoBehaviour
 
     void Start()
     {
-        Button btn = button.GetComponent<Button>();
         controll = controller.GetComponent<ShopController>();
+        Button btn = button.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
     }
 
