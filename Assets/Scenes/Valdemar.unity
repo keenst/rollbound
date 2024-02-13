@@ -356,6 +356,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f136513e9f66bc4c9e26e982ead6744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1132033453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7319951638225906320, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}
+  m_PrefabInstance: {fileID: 2819651585694416430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1185500120 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1158553216, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
@@ -768,10 +773,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 535770381}
     m_Modifications:
-    - target: {fileID: 552279770, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 2014781004656403025, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 1132033453}
     - target: {fileID: 2819651587203937224, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -859,6 +864,30 @@ PrefabInstance:
     - target: {fileID: 2819651587203937227, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}
       propertyPath: m_Name
       value: Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826181189279930163, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}
+      propertyPath: m_Pivot.y
+      value: -0.000000024214387
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826181189279930163, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826181189279930163, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826181189279930163, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 230
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826181189279930163, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -240.12494
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319951638225906320, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}
+      propertyPath: m_Name
+      value: Hand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b989b552f725540b733c5b9cb41bcb, type: 3}

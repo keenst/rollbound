@@ -8,11 +8,13 @@ public class ShopButton : MonoBehaviour
 {
     public Button button;
     public ShopController controller;
-    public bool isSelected = false;
+    public bool isSelected;
     private ShopController controll;
 
     void Start()
     {
+        isSelected = false;
+
         controll = controller.GetComponent<ShopController>();
 
         button.onClick.AddListener(TaskOnClick);
@@ -22,12 +24,13 @@ public class ShopButton : MonoBehaviour
     {
         if (isSelected)
         {
-
+            controller.IdleHand();
+            isSelected = false;
         }
         else
         {
-            controller.MoveHand(button.transform);
-            //move hand based on location of ability
+            controller.goalPosition = button.transform.position;
+            isSelected = true;
         }
     }
 

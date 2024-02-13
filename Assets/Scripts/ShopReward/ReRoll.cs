@@ -20,6 +20,6 @@ public class ReRoll : MonoBehaviour
 
     void TaskOnClick()
     {
-        shopKontroll.OpenShop();
+        shopKontroll.OpenShop(new Player());
     }
 }

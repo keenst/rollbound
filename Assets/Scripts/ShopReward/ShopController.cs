@@ -11,17 +11,42 @@ public class ShopController : MonoBehaviour
     public Button[] rareButtons;
     public Button[] epicButtons;
     public List<Ability> abilitiesMarked = new();
-    public Sprite hand;
+    public GameObject hand;
+
+    public Vector3 goalPosition;
 
     void Start()
     {
-        OpenShop();
+        OpenShop(new Player());
     }
 
+    private void Update()
+    {
+        if (hand.transform.position.x > goalPosition.x)
+        {
+            hand.transform.Translate(-2,0,0);
+        }
+        else if (hand.transform.position.x < goalPosition.x)
+        {
+            hand.transform.Translate(2, 0, 0);
+        }
+
+        if (hand.transform.position.y < goalPosition.y)
+        {
+            hand.transform.Translate(0,2,0);
+        }
+        else if (hand.transform.position.y > goalPosition.y)
+        {
+            hand.transform.Translate(0, -2, 0);
+        }
+    }
 
     // Generate abilities
-    public void OpenShop()
+    public void OpenShop(Player player)
     {
+        hand.SetActive(true);
+        goalPosition = new Vector3(230,750,0);
+        hand.transform.position = goalPosition;
         abilitiesMarked.Clear();
         double fallOff = 0.4;
         Random rng = new();
@@ -77,11 +102,17 @@ public class ShopController : MonoBehaviour
         {
             // CustomiseDie(ability);
         }
+        hand.SetActive(false);
     }
 
 
-    public void MoveHand(Transform transform)
+    public void MoveHand(Transform buttonTransform)
     {
-        
+        hand.transform.position = buttonTransform.position;
+    }
+
+    public void IdleHand()
+    {
+        goalPosition = new Vector3(570,0,0);
     }
 }
