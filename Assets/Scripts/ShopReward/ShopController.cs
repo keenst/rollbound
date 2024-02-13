@@ -22,7 +22,7 @@ public class ShopController : MonoBehaviour
 
     private void Update()
     {
-        float step = 100 * Time.deltaTime;
+        float step = 500 * Time.deltaTime;
         hand.transform.position = Vector3.MoveTowards(hand.transform.position, goalPosition, step);
     }
 
@@ -30,8 +30,9 @@ public class ShopController : MonoBehaviour
     public void OpenShop(Player player)
     {
         hand.SetActive(true);
+        hand.transform.position = new Vector3(230,750,0);
         goalPosition = new Vector3(230, 750, 0);
-        hand.transform.position = goalPosition;
+        print(goalPosition);
         abilitiesMarked.Clear();
         double fallOff = 0.4;
         Random rng = new();
@@ -94,10 +95,12 @@ public class ShopController : MonoBehaviour
     public void MoveHand(Transform buttonTransform)
     {
         goalPosition = buttonTransform.position;
+        print(goalPosition);
     }
 
     public void IdleHand()
     {
         goalPosition = new Vector3(230, 570, 0);
+        print(goalPosition);
     }
 }

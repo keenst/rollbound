@@ -24,11 +24,10 @@ public class ShopButton : MonoBehaviour
     {
         if (isSelected)
         {
-            controller.IdleHand();
             isSelected = false;
         }
         else
-        {
+        { 
             controller.MoveHand(button.transform);
             isSelected = true;
         }
