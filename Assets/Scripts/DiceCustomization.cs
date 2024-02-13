@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,17 @@ using UnityEngine.UI;
 
 public class DiceCustomization : MonoBehaviour
 {
-    private int selectedSideIndex = -1;
+    private int selectedSideIndex;
+    private Dice dice;
     public Ability currentAbility;
+    public GameObject[] objectsToActivate = new GameObject[9];
+    public Button[] dieSides = new Button[6];
+    public AbilityImages abilityImages;
 
     void Start()
     {
-        Dice dice = new(
+
+        dice = new(
             new Die(
                 Abilities.GetFromName("Bite"),
                 Abilities.GetFromName("Bite"),
@@ -34,72 +40,67 @@ public class DiceCustomization : MonoBehaviour
                 Abilities.GetFromName("Block"),
                 Abilities.GetFromName("Block"))
             );
-        RandomiseAbility();
+        randomiseAbility();
+        openMenu(currentAbility, dice);
     }
+    public void openMenu(Ability newAbility, Dice dice)
+    {
+        activateComponents();
+        Die die = dice.GetDie(DieType.Physical);
+        switch (currentAbility)
+        {
+            case PhysicalAbility:
+                die = dice.GetDie(DieType.Physical);
+                break;
 
+            case MagicalAbility:
+                die = dice.GetDie(DieType.Magical);
+                break;
 
-    void Update()
-    {
-        
+            case DefensiveAbility:
+                die = dice.GetDie(DieType.Defensive);
+                break;
+        } 
+        for (int i = 0; i < dieSides.Length; i++)
+        {
+            Sprite texture = abilityImages.Get(die.abilities[i].Name);
+            dieSides[i].image.sprite = texture;
+        }
     }
+    public void activateComponents()
+    {
+        foreach (var GameObject in objectsToActivate)
+        {
+            GameObject.SetActive(true);
+        }
+        Debug.Log("Components activated");
+    }
+    public void deactivateComponents()
+    {
+        foreach (var GameObject in objectsToActivate)
+        {
+            GameObject.SetActive(false);
+        }
+        Debug.Log("Components deactivated");
+    }
+    private void replaceAbility(Ability ability, int sideIndex, Dice dice)
+    {
+        DieType dieType = ability switch
+        {
+            PhysicalAbility => DieType.Physical,
+            MagicalAbility => DieType.Magical,
+            DefensiveAbility => DieType.Defensive,
+            _ => DieType.Physical
+        };
+        Debug.Log("Side index: " + sideIndex);
+        Die die = dice.GetDie(dieType);
+        die.abilities[sideIndex] = ability;
 
-    public void CustomiseDice(Ability newAbility)
-    {
-        if (newAbility is PhysicalAbility)
-        {
-            ChangeColor1(Color.red);
-            ChangeText1("Physical ability");
-        }
-        if (newAbility is MagicalAbility)
-        {
-            ChangeColor1(Color.blue);
-            ChangeText1("Magical ability");
-        }
-        if (newAbility is DefensiveAbility)
-        {
-            ChangeColor1(Color.green);
-            ChangeText1("Defensive ability");
-        }
     }
-    public void newAbilityCTM(Ability currentAbility)
-    {
-        if (currentAbility is PhysicalAbility)
-        {
-            ChangeColor(Color.red);
-            ChangeText("Physical ability");
-        }
-        if (currentAbility is MagicalAbility)
-        {
-            ChangeColor(Color.blue);
-            ChangeText("Magical ability");
-        }
-        if (currentAbility is DefensiveAbility)
-        {
-            ChangeColor(Color.green);
-            ChangeText("Defensive ability");
-        }
-    }
-    private void ChangeColor(Color color)
-    {
-        GameObject.Find("New ability").GetComponent<Image>().color = color;
-    }
-    private void ChangeText(string text)
-    {
-        GameObject.Find("New ability").GetComponentInChildren<Text>().text = text;
-    }
-    private void ChangeColor1(Color color)
-    {
-        GameObject.Find("Side " + selectedSideIndex).GetComponent<Image>().color = color;
-    }
-    private void ChangeText1(string text)
-    {
-        GameObject.Find("Side " + selectedSideIndex).GetComponentInChildren<Text>().text = text;
-    }
-    public void RandomiseAbility()
+    private void randomiseAbility()
     {
         currentAbility = Abilities.GetFromRarity(CardRarity.Common);
-        Debug.Log("Current ability updated to " + currentAbility);
-        newAbilityCTM(currentAbility);
+        Debug.Log(currentAbility);
     }
     public void RegisterSelectedSide(int sideIndex)
     {
@@ -107,18 +108,19 @@ public class DiceCustomization : MonoBehaviour
         Debug.Log("Selected side: " + sideIndex);
     }
     public void confirmation()
-    {            
+    {
         if (selectedSideIndex != -1)
-        { 
-            CustomiseDice(currentAbility);
+        {
+            replaceAbility(currentAbility, selectedSideIndex, dice);
             Debug.Log("Ability on side " + selectedSideIndex + " updated to " + currentAbility);
-            selectedSideIndex = -1;            
-            RandomiseAbility();            
+            selectedSideIndex = -1;
+            randomiseAbility();
+            deactivateComponents();
+            openMenu(currentAbility, dice);
         }
         else
         {
             Debug.Log("No side selected to update ability.");
         }            
     }
-
 }
