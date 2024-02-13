@@ -22,30 +22,15 @@ public class ShopController : MonoBehaviour
 
     private void Update()
     {
-        if (hand.transform.position.x > goalPosition.x)
-        {
-            hand.transform.Translate(-2,0,0);
-        }
-        else if (hand.transform.position.x < goalPosition.x)
-        {
-            hand.transform.Translate(2, 0, 0);
-        }
-
-        if (hand.transform.position.y < goalPosition.y)
-        {
-            hand.transform.Translate(0,2,0);
-        }
-        else if (hand.transform.position.y > goalPosition.y)
-        {
-            hand.transform.Translate(0, -2, 0);
-        }
+        float step = 100 * Time.deltaTime;
+        hand.transform.position = Vector3.MoveTowards(hand.transform.position, goalPosition, step);
     }
 
     // Generate abilities
     public void OpenShop(Player player)
     {
         hand.SetActive(true);
-        goalPosition = new Vector3(230,750,0);
+        goalPosition = new Vector3(230, 750, 0);
         hand.transform.position = goalPosition;
         abilitiesMarked.Clear();
         double fallOff = 0.4;
@@ -108,11 +93,11 @@ public class ShopController : MonoBehaviour
 
     public void MoveHand(Transform buttonTransform)
     {
-        hand.transform.position = buttonTransform.position;
+        goalPosition = buttonTransform.position;
     }
 
     public void IdleHand()
     {
-        goalPosition = new Vector3(570,0,0);
+        goalPosition = new Vector3(230, 570, 0);
     }
 }
