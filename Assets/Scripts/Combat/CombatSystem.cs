@@ -6,6 +6,7 @@ public class CombatSystem : MonoBehaviour
 {
 	public Text[] dieButtons;
 	public GameObject[] diceObjects;
+	public DieButton[] dieButtonScripts;
 
 	// TODO: Remove
 	public enterCave enterCaveScript;
@@ -35,6 +36,11 @@ public class CombatSystem : MonoBehaviour
 	private Ability _secondPick;
 
 	private static Random _rng = new();
+
+	public void Start()
+	{
+		ThrowDice();
+	}
 
 	public void OnStart(Player player, Fighter enemy)
 	{
@@ -130,6 +136,12 @@ public class CombatSystem : MonoBehaviour
 
 	private void ThrowDice()
 	{
+		foreach (DieButton button in dieButtonScripts)
+		{
+			button.StartRolling();
+		}
+
+		/*
 		for (int i = 0; i < _dieSidesUp.Length; i++)
 		{
 			_dieSidesUp[i] = _rng.Next(0, 6);
@@ -153,6 +165,12 @@ public class CombatSystem : MonoBehaviour
 			{
 				diceObjects[1].SetActive(false);
 			}
+		}
+		*/
+
+		foreach (DieButton button in dieButtonScripts)
+		{
+			button.StopInMS(1500);
 		}
 	}
 
