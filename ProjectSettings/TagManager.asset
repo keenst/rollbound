@@ -6,6 +6,8 @@ TagManager:
   tags:
   - RewConf
   - Wall
+  - Combat
+  - Entrance
   layers:
   - Default
   - TransparentFX

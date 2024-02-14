@@ -17,9 +17,10 @@ public class EnterShop : MonoBehaviour
             startBg.SetActive(false);
             ani.SetBool("changeScene", true);
             //print("Swiching scene to " + sceneBuildIndex);
-            //isChangeing = true;
+            isChangeing = true;
         }
     }
+
     private void changeScene()
     {
         SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
