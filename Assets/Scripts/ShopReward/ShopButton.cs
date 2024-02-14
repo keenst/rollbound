@@ -22,15 +22,15 @@ public class ShopButton : MonoBehaviour
 
     void TaskOnClick()
     {
-        if (isSelected)
+        controll.ClearSelect();
+        controll.IdleHand();
+
+        if (!isSelected)
         {
-            isSelected = false;
-        }
-        else
-        { 
             controller.MoveHand(button.transform);
             isSelected = true;
         }
     }
+
 
 }
