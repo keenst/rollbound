@@ -7,14 +7,12 @@ using Random = System.Random;
 
 public class ShopController : MonoBehaviour
 {
-    public Button[] commonButtons;
-    public Button[] rareButtons;
-    public Button[] epicButtons;
-    public List<Ability> abilitiesMarked = new();
-    public GameObject hand;
     public ShopButton[] allButtons;
+    public List<Ability> abilitiesBought = new();
+    public GameObject hand;
     public Vector3 goalPosition;
     public GameObject glow;
+    private Player _player;
     void Start()
     {
         OpenShop(new Player());
@@ -29,66 +27,52 @@ public class ShopController : MonoBehaviour
     // Generate abilities
     public void OpenShop(Player player)
     {
+        _player = player;
         hand.SetActive(true);
         hand.transform.position = new Vector3(600,750,0);
         goalPosition = new Vector3(600, 750, 0);
         print(goalPosition);
-        abilitiesMarked.Clear();
-        double fallOff = 0.4;
         Random rng = new();
 
-        int i = 0;
-
-        foreach (var x in commonButtons)
+        for (int i = 0; i < allButtons.Length; i++)
         {
-            if (rng.NextDouble() <= 0.6 + fallOff)
+            allButtons[i].gameObject.SetActive(false);
+            if (i<4)
             {
+                if (rng.Next(1, 3) != 1) continue;
                 
-                x.gameObject.SetActive(true);
-                fallOff -= 0.2;
+                allButtons[i].gameObject.SetActive(true);
+                allButtons[i].SetAbility(Abilities.GetFromRarity(CardRarity.Common));
+            }
+            else if (i<8)
+            {
+                if (rng.Next(1,4) != 1) continue;
+
+                allButtons[i].gameObject.SetActive(true);
+                allButtons[i].SetAbility(Abilities.GetFromRarity(CardRarity.Rare));
             }
             else
             {
-                x.gameObject.SetActive(false);
+                if (rng.Next(1,7) != 1) continue;
+                allButtons[i].gameObject.SetActive(true);
+                allButtons[i].SetAbility(Abilities.GetFromRarity(CardRarity.Legendary));
             }
-            i++;
+            
         }
 
-        fallOff = 0;
+        
 
-        foreach (var x in rareButtons)
-        {
-            if (rng.NextDouble() <= 0.45 + fallOff)
-            {
-                x.gameObject.SetActive(true);
-                fallOff -= 0.15;
-            }
-            else
-            {
-                x.gameObject.SetActive(false);
-            }
-        }
+        
+    }
 
-        fallOff = 0;
-
-        foreach (var x in epicButtons)
-        {
-            if (rng.NextDouble() <= 0.17 + fallOff)
-            {
-                x.gameObject.SetActive(true);
-                fallOff -= 0.13;
-            }
-            else
-            {
-                x.gameObject.SetActive(false);
-            }
-        }
+    public void CompletePurchase()
+    {
+        _player.DieFragments -= 3;
     }
 
     public void CloseShop()
     {
-        //Player.dieFragments -= totalCost;
-        foreach (var ability in abilitiesMarked)
+        foreach (var ability in abilitiesBought)
         {
             // CustomiseDie(ability);
         }

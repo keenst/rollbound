@@ -10,6 +10,8 @@ public class ShopButton : MonoBehaviour
     public ShopController controller;
     public bool isSelected;
     private ShopController controll;
+    public AbilityImages abilityImages;
+    public Ability buttonAbility;
 
     void Start()
     {
@@ -32,5 +34,10 @@ public class ShopButton : MonoBehaviour
         }
     }
 
+    public void SetAbility (Ability ability)
+    {
+        button.image.sprite = abilityImages.Get(ability.Name);
+        buttonAbility = ability;
+    }
 
 }
