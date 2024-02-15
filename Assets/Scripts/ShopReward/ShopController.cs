@@ -12,9 +12,9 @@ public class ShopController : MonoBehaviour
     public Button[] epicButtons;
     public List<Ability> abilitiesMarked = new();
     public GameObject hand;
-
+    public ShopButton[] allButtons;
     public Vector3 goalPosition;
-
+    public GameObject glow;
     void Start()
     {
         OpenShop(new Player());
@@ -22,39 +22,28 @@ public class ShopController : MonoBehaviour
 
     private void Update()
     {
-        if (hand.transform.position.x > goalPosition.x)
-        {
-            hand.transform.Translate(-2,0,0);
-        }
-        else if (hand.transform.position.x < goalPosition.x)
-        {
-            hand.transform.Translate(2, 0, 0);
-        }
-
-        if (hand.transform.position.y < goalPosition.y)
-        {
-            hand.transform.Translate(0,2,0);
-        }
-        else if (hand.transform.position.y > goalPosition.y)
-        {
-            hand.transform.Translate(0, -2, 0);
-        }
+        float step = 500 * Time.deltaTime;
+        hand.transform.position = Vector3.MoveTowards(hand.transform.position, goalPosition, step);
     }
 
     // Generate abilities
     public void OpenShop(Player player)
     {
         hand.SetActive(true);
-        goalPosition = new Vector3(230,750,0);
-        hand.transform.position = goalPosition;
+        hand.transform.position = new Vector3(600,750,0);
+        goalPosition = new Vector3(600, 750, 0);
+        print(goalPosition);
         abilitiesMarked.Clear();
         double fallOff = 0.4;
         Random rng = new();
+
+        int i = 0;
+
         foreach (var x in commonButtons)
         {
             if (rng.NextDouble() <= 0.6 + fallOff)
             {
-
+                
                 x.gameObject.SetActive(true);
                 fallOff -= 0.2;
             }
@@ -62,6 +51,7 @@ public class ShopController : MonoBehaviour
             {
                 x.gameObject.SetActive(false);
             }
+            i++;
         }
 
         fallOff = 0;
@@ -108,11 +98,26 @@ public class ShopController : MonoBehaviour
 
     public void MoveHand(Transform buttonTransform)
     {
-        hand.transform.position = buttonTransform.position;
+        goalPosition.x = buttonTransform.position.x;
+        goalPosition.y = buttonTransform.position.y + 40;
+        print(goalPosition);
     }
 
     public void IdleHand()
     {
-        goalPosition = new Vector3(570,0,0);
+        goalPosition = new Vector3(600, 750, 0);
+    }
+
+    public void ClearSelect()
+    {
+        foreach (var x in allButtons)
+        {
+            x.isSelected = false;
+        }
+    }
+
+    public void ShowGlow()
+    {
+        
     }
 }

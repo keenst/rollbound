@@ -12,33 +12,24 @@ public class enterCave : MonoBehaviour
     [SerializeField] private GameObject combat;
     [SerializeField] private GameObject nextPart;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject lvTrigger;
     public Player _player = new();
     public CombatSystem combSystm;
 
-    bool outofComb = false;
-    bool intoComb = false;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void lv1()
     {
-        if(other.tag == "Player")
-        {
-            intoComb = true;
-            ani.SetBool("changeScene", true);
-        }
-    }
-    private void active()
-    {
-        ani.SetBool("changeScene", false);
+        startBg.SetActive(false);
         player.SetActive(false);
         cam.SetActive(true);
-        startBg.SetActive(false);
         lv.SetActive(true);
         combat.SetActive(true);
         combSystm.OnStart(_player, Enemies.GetFromName("Test"));
+        ani.SetBool("changeScene", false);
+        print("start combat");
     }
     public void combatEnd()
     {
-        outofComb = true;
         ani.SetBool("changeScene", true);
         print("1");
         Update();
@@ -52,7 +43,7 @@ public class enterCave : MonoBehaviour
         combat.SetActive(false);
         nextPart.SetActive(true);
         print("3");
-        player.transform.position = new Vector2(0, 0);
+        player.transform.position = new Vector2(28, -6);
     }
 
     void Start()
@@ -62,16 +53,6 @@ public class enterCave : MonoBehaviour
 
     void Update()
     {
-        if (intoComb == true)
-        {
-            intoComb = false;
-            Invoke("active", 1);
-        }
-        if (outofComb == true)
-        {
-            outofComb = false;
-            Invoke("combEndChange", 1);
-            print("2");
-        }
+
     }
 }
