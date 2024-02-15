@@ -17,6 +17,7 @@ public class Fighter
 	public string Name;
 	public StatusEffect StatusEffect = StatusEffect.None;
 	public int RoundsWithStatusEffect;
+	public float ToHeal;
 
 	public List<DefensiveStatus> DefensiveStatuses = new();
 
@@ -45,8 +46,8 @@ public class Fighter
 
 		DamageInfo damageInfo = new();
 
-		DefensiveStatus healStatus;
-		if (IsHealingDamage(out healStatus) && healStatus.DamageType == type)
+		DefensiveStatus absorbStatus;
+		if (IsAbsorbingDamage(out absorbStatus) && absorbStatus.DamageType == type)
 		{
 			float toHeal = damage * 0.4f;
 			damage *= 0.6f;
@@ -54,9 +55,15 @@ public class Fighter
 			damageInfo.DamageHealed = toHeal;
 		}
 
-		if (StatusEffect == StatusEffect.Poisoned)
+		DefensiveStatus counterStatus;
+		if (IsCountering(out counterStatus) && counterStatus.DamageType == type)
 		{
 			damage *= 0.6f;
+		}
+
+		if (StatusEffect == StatusEffect.Poisoned)
+		{
+			damage *= 1.5f;
 		}
 
 		HP -= damage;
@@ -96,7 +103,7 @@ public class Fighter
 		DefensiveStatuses.Clear();
 	}
 
-	public void HealDamage(DamageType type)
+	public void AbsorbDamage(DamageType type)
 	{
 		DefensiveStatus status = new();
 		status.DefensiveType = DefensiveType.Heal;
@@ -104,7 +111,26 @@ public class Fighter
 		DefensiveStatuses.Add(status);
 	}
 
-	public bool IsHealingDamage(out DefensiveStatus status)
+	public void Heal(float amount)
+	{
+		ToHeal = amount;
+	}
+
+	public void Counter(DamageType type)
+	{
+		DefensiveStatus status = new();
+		status.DefensiveType = DefensiveType.Counter;
+		status.DamageType = type;
+		DefensiveStatuses.Add(status);
+	}
+
+	public bool IsCountering(out DefensiveStatus status)
+	{
+		status = DefensiveStatuses.Find(s => s.DefensiveType == DefensiveType.Counter);
+		return !status.Equals(default(DefensiveStatus));
+	}
+
+	public bool IsAbsorbingDamage(out DefensiveStatus status)
 	{
 		status = DefensiveStatuses.Find(s => s.DefensiveType == DefensiveType.Heal);
 		return !status.Equals(default(DefensiveStatus));

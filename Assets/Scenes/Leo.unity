@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: abilityImages
       value: 
       objectReference: {fileID: 1806055991}
-    - target: {fileID: 932955396, guid: 9a38679de9feee844a0e42f5760e9bf8, type: 3}
-      propertyPath: enterCaveScript
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1380524935667813418, guid: 9a38679de9feee844a0e42f5760e9bf8, type: 3}
       propertyPath: m_Name
       value: CombatSystem

@@ -13,6 +13,10 @@ public struct NameSpritePair
 
 public class AbilityImages : MonoBehaviour
 {
+	public Sprite common;
+	public Sprite rare;
+	public Sprite legendary;
+
 	public List<NameSpritePair> _dictionary = new();
 
 	public Sprite Get(string name)
@@ -41,5 +45,16 @@ public class AbilityImages : MonoBehaviour
 
 		Debug.LogError($"Couldn't find overlay for ability {name}");
 		return null;
+	}
+
+	public Sprite GetRarityOverlay(CardRarity rarity)
+	{
+		return rarity switch
+		{
+			CardRarity.Common => common,
+			CardRarity.Rare => rare,
+			CardRarity.Legendary => legendary,
+			_ => null
+		};
 	}
 }

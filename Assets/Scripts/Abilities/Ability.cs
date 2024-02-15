@@ -2,11 +2,16 @@ public class Ability
 {
 	public virtual string Name { get; }
 	public virtual CardRarity Rarity { get; }
+	public virtual string Description { get; }
+	public virtual string Quote { get; }
+	public virtual int Cost { get; }
 
-	public Ability(string name, CardRarity rarity)
+	public Ability(string name, CardRarity rarity, string quote, string description, int cost)
 	{
 		Name = name;
 		Rarity = rarity;
+		Description = description;
+		Cost = cost;
 	}
 }
 
@@ -14,7 +19,7 @@ public class PhysicalAbility : Ability
 {
 	private float _damage;
 
-	public PhysicalAbility(string name, CardRarity rarity, float damage) : base(name, rarity)
+	public PhysicalAbility(string name, CardRarity rarity, float damage, string quote, string description, int cost) : base(name, rarity, quote, description, cost)
 	{
 		_damage = damage;
 	}
@@ -40,7 +45,7 @@ public class MagicalAbility : Ability
 
 	public Element Element;
 
-	public MagicalAbility(string name, CardRarity rarity, Element element, float potency) : base(name, rarity)
+	public MagicalAbility(string name, CardRarity rarity, Element element, float potency, string quote, string description, int cost) : base(name, rarity, quote, description, cost)
 	{
 		Element = element;
 		Potency = potency;
@@ -51,7 +56,7 @@ public class DefensiveAbility : Ability
 {
 	private DefensiveType _defensiveType;
 
-	public DefensiveAbility(string name, CardRarity rarity, DefensiveType defensiveType) : base(name, rarity)
+	public DefensiveAbility(string name, CardRarity rarity, DefensiveType defensiveType, string quote, string description, int cost) : base(name, rarity, quote, description, cost)
 	{
 		_defensiveType = defensiveType;
 	}
@@ -64,7 +69,13 @@ public class DefensiveAbility : Ability
 				HandleBlock(user, (DamageType)magicalAbility.Element);
 				break;
 			case DefensiveType.Heal:
-				HandleBlock(user, (DamageType)magicalAbility.Element);
+				HandleAbsorb(user, (DamageType)magicalAbility.Element);
+				break;
+			case DefensiveType.Counter:
+				HandleCounter(user, (DamageType)magicalAbility.Element);
+				break;
+			case DefensiveType.HerbalTonic:
+				HandleHerbalTonic(user, (DamageType)magicalAbility.Element);
 				break;
 		}
 
@@ -79,11 +90,43 @@ public class DefensiveAbility : Ability
 				HandleBlock(user, DamageType.Physical);
 				break;
 			case DefensiveType.Heal:
-				HandleHeal(user, DamageType.Physical);
+				HandleAbsorb(user, DamageType.Physical);
+				break;
+			case DefensiveType.Counter:
+				HandleCounter(user, DamageType.Physical);
+				break;
+			case DefensiveType.HerbalTonic:
+				HandleHerbalTonic(user, DamageType.Physical);
 				break;
 		}
 
 		return new DamageInfo();
+	}
+
+	private void HandleHerbalTonic(Fighter user, DamageType type)
+	{
+		if (type == DamageType.Physical)
+		{
+			float healAmount = Rarity switch
+			{
+				CardRarity.Common => 3,
+				CardRarity.Rare => 5,
+				CardRarity.Legendary => 8,
+				_ => 0
+			};
+
+			user.Heal(healAmount);
+			return;
+		}
+
+		if ((StatusEffect)type == user.StatusEffect)
+		{
+			user.StatusEffect = StatusEffect.None;
+		}
+	}
+
+	private void HandleCounter(Fighter user, DamageType type)
+	{
 	}
 
 	private void HandleBlock(Fighter user, DamageType typeToBlock)
@@ -91,8 +134,8 @@ public class DefensiveAbility : Ability
 		user.BlockDamage(typeToBlock);
 	}
 
-	private void HandleHeal(Fighter user, DamageType type)
+	private void HandleAbsorb(Fighter user, DamageType type)
 	{
-		user.HealDamage(type);
+		user.AbsorbDamage(type);
 	}
 }

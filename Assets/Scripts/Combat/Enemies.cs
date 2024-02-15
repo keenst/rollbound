@@ -45,12 +45,12 @@ public static class Enemies
 					Abilities.GetFromName("Ignite"),
 					Abilities.GetFromName("Ignite")),
 				new Die(
-					Abilities.GetFromName("Block"),
-					Abilities.GetFromName("Block"),
-					Abilities.GetFromName("Block"),
-					Abilities.GetFromName("Block"),
-					Abilities.GetFromName("Block"),
-					Abilities.GetFromName("Block"))),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"))),
 			maxHp: 20,
 			hp: 20));
 	}
