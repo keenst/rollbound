@@ -4234,6 +4234,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1956973765}
     m_Modifications:
     - target: {fileID: 932955396, guid: 9a38679de9feee844a0e42f5760e9bf8, type: 3}
+      propertyPath: abilityImages
+      value: 
+      objectReference: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+    - target: {fileID: 932955396, guid: 9a38679de9feee844a0e42f5760e9bf8, type: 3}
       propertyPath: enterCaveScript
       value: 
       objectReference: {fileID: 1365460107}
