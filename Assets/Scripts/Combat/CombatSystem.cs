@@ -42,7 +42,7 @@ public class CombatSystem : MonoBehaviour
 	public Text enemyDamageInfoText;
 
 	// TODO: Remove
-	public enterCave enterCaveScript;
+	public topDownMove enterCaveScript;
 
 	public Text playerNameText;
 	public Text enemyNameText;
@@ -301,6 +301,7 @@ public class CombatSystem : MonoBehaviour
 
 	private void EndBattle()
 	{
+		print("-1");
 		_playerStats.HP = _player.HP;
 		enterCaveScript.combatEnd();
 	}
@@ -321,6 +322,7 @@ public class CombatSystem : MonoBehaviour
 
 		if (_player.HP <= 0 || _enemy.HP <= 0)
 		{
+			print("-2");
 			EndBattle();
 			return true;
 		}
