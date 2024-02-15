@@ -45,14 +45,14 @@ public static class Abilities
 	{
 		_abilities.Add(new PhysicalAbility("Punch", CardRarity.Common, 1.5f, "Don’t know why you’d need to learn how to punch…but allow me to demonstrate", "Deals minor physical damage", 10));
 		_abilities.Add(new PhysicalAbility("Bite", CardRarity.Common, 2, "Bite might be an understatement but…", "Bite deals decent physical damage", 10));
-		_abilities.Add(new PhysicalAbility("Crossbow", CardRarity.Common, 2.5f, "For killing more than just a pesky fly…", "Deals decent physical damage. Guaranteed to hit flying enemies, unlike normal physical attacks", 10));
+		_abilities.Add(new PhysicalAbility("Crossbow", CardRarity.Common, 2.5f, "For killing more than just a pesky fly…", "Deals decent physical damage.", 10));
 		_abilities.Add(new PhysicalAbility("Sickle", CardRarity.Rare, 3, "Not for cutting hay I take it…?", "Deals decent physical damage", 20));
-		_abilities.Add(new PhysicalAbility("Stab", CardRarity.Rare, 4,  "Who doesn’t like a good shank…?", "Deals minor physical damage. Has a 25% chance to deal major damage.", 20));
-		_abilities.Add(new PhysicalAbility("Rock Throw", CardRarity.Rare, 3, "Don’t have a sling, use your hand instead…", "Deals minor physical damage. Guaranteed to hit flying enemies, unlike normal physical attacks.", 20));
+		_abilities.Add(new PhysicalAbility("Stab", CardRarity.Rare, 4,  "Who doesn’t like a good shank…?", "Deals decent physical damage.", 20));
+		_abilities.Add(new PhysicalAbility("Rock Throw", CardRarity.Rare, 3, "Don’t have a sling, use your hand instead…", "Deals minor physical damage.", 20));
 		_abilities.Add(new PhysicalAbility("Diabolical Smite", CardRarity.Legendary, 6, "When overkill just isn’t enough…", "Deals major physical damage.", 50));
 
 		_abilities.Add(new MagicalAbility("Poison", CardRarity.Common, Element.Poison, 0.4f, "It’s poison… What else is there to say?", "Poisons enemies, poisoned enemies take more damage.", 10));
-		_abilities.Add(new MagicalAbility("Ignite", CardRarity.Common, Element.Fire, 0.4f, "Playing with fire is definitely a good idea…", "Deals damage to enemies overtime.", 10));
+		_abilities.Add(new MagicalAbility("Ignite", CardRarity.Common, Element.Fire, 0.4f, "Playing with fire is definitely a good idea…", "Burns enemies, burning enemies take damage overtime.", 10));
 		_abilities.Add(new MagicalAbility("Freeze", CardRarity.Common, Element.Frost, 0.4f, "A good way to send more than just a shiver down someone’s spine...", "Freezes enemies, frozen enemies don’t hit as hard.", 10));
 		_abilities.Add(new MagicalAbility("Magical Staff", CardRarity.Legendary, Element.Holy, 1, "From dust to ashes…", "Deals major magical damage.", 50));
 

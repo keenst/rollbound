@@ -127,9 +127,9 @@ public class CombatSystem : MonoBehaviour
 
 			DisableDice();
 
-			if (_player.ToHeal < 0)
+			if (_player.ToHeal > 0)
 			{
-				_player.HP += _player.ToHeal;
+				_player.HP = Mathf.Min(_player.HP + _player.ToHeal, _player.MaxHP);
 				_playerDamageInfo.DamageHealed += _player.ToHeal;
 				_player.ToHeal = 0;
 			}
@@ -275,8 +275,8 @@ public class CombatSystem : MonoBehaviour
 			// Pick random die
 			int die = _rng.Next(2);
 
-			// Make sure enemy doesn't pick 2 magical abilities in a row
-			if (i == 1 && die == 1)
+			// Make sure enemy doesn't pick 2 magical abilities in a row and that it doesn't pick a magical ability if it doesn't have any
+			if (i == 1 && die == 1 || _enemy.Dice.GetDie(DieType.Magical) == null)
 			{
 				die += _rng.Next(1) == 0 ? 1 : -1;
 			}
@@ -288,9 +288,9 @@ public class CombatSystem : MonoBehaviour
 
 		ExecuteAbilities(abilities[0], abilities[1], _enemy, _player, ref _enemyDamageInfo, ref _playerDamageInfo);
 
-		if (_enemy.ToHeal < 0)
+		if (_enemy.ToHeal > 0)
 		{
-			_enemy.HP += _enemy.ToHeal;
+			_enemy.HP = Mathf.Min(_enemy.HP + _enemy.ToHeal, _enemy.MaxHP);
 			_enemyDamageInfo.DamageHealed += _enemy.ToHeal;
 			_enemy.ToHeal = 0;
 		}
@@ -351,6 +351,10 @@ public class CombatSystem : MonoBehaviour
 
 		UpdateDamageInfo(playerDamageInfoText, _playerDamageInfo);
 		UpdateDamageInfo(enemyDamageInfoText, _enemyDamageInfo);
+
+		// TODO: maybe (re)move these?
+		_playerDamageInfo = new DamageInfo();
+		_enemyDamageInfo = new DamageInfo();
 
 		if (_player.HP <= 0 || _enemy.HP <= 0)
 		{

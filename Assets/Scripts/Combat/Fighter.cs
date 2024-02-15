@@ -18,6 +18,7 @@ public class Fighter
 	public StatusEffect StatusEffect = StatusEffect.None;
 	public int RoundsWithStatusEffect;
 	public float ToHeal;
+	public DamageType Weakness;
 
 	public List<DefensiveStatus> DefensiveStatuses = new();
 
@@ -49,8 +50,22 @@ public class Fighter
 		DefensiveStatus absorbStatus;
 		if (IsAbsorbingDamage(out absorbStatus) && absorbStatus.DamageType == type)
 		{
-			float toHeal = damage * 0.4f;
-			damage *= 0.6f;
+			float toHeal = damage * absorbStatus.Strength switch
+			{
+				Strength.Weak => 0.4f,
+				Strength.Medium => 0.8f,
+				Strength.Strong => 1.4f,
+				_ => 0
+			};
+
+			damage *= absorbStatus.Strength switch
+			{
+				Strength.Weak => 0.6f,
+				Strength.Medium => 0.4f,
+				Strength.Strong => 0.0f,
+				_ => 0
+			};
+
 			HP += toHeal;
 			damageInfo.DamageHealed = toHeal;
 		}
@@ -64,6 +79,11 @@ public class Fighter
 		if (StatusEffect == StatusEffect.Poisoned)
 		{
 			damage *= 1.5f;
+		}
+
+		if (Weakness == type)
+		{
+			damage *= 3;
 		}
 
 		HP -= damage;
@@ -103,11 +123,12 @@ public class Fighter
 		DefensiveStatuses.Clear();
 	}
 
-	public void AbsorbDamage(DamageType type)
+	public void AbsorbDamage(DamageType type, Strength strength)
 	{
 		DefensiveStatus status = new();
 		status.DefensiveType = DefensiveType.Heal;
 		status.DamageType = type;
+		status.Strength = strength;
 		DefensiveStatuses.Add(status);
 	}
 

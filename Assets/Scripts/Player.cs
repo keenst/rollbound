@@ -24,12 +24,12 @@ public class Player
 					Abilities.GetFromName("Freeze"),
 					Abilities.GetFromName("Freeze")),
 				new Die(
-					Abilities.GetFromName("Herbal Tonic"),
-					Abilities.GetFromName("Herbal Tonic"),
-					Abilities.GetFromName("Herbal Tonic"),
-					Abilities.GetFromName("Herbal Tonic"),
-					Abilities.GetFromName("Herbal Tonic"),
-					Abilities.GetFromName("Herbal Tonic")));
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots")));
 	}
 
 	public Fighter GetFighter()

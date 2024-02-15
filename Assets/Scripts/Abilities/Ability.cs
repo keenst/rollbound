@@ -107,15 +107,7 @@ public class DefensiveAbility : Ability
 	{
 		if (type == DamageType.Physical)
 		{
-			float healAmount = Rarity switch
-			{
-				CardRarity.Common => 3,
-				CardRarity.Rare => 5,
-				CardRarity.Legendary => 8,
-				_ => 0
-			};
-
-			user.Heal(healAmount);
+			user.Heal(1.5f);
 			return;
 		}
 
@@ -136,6 +128,6 @@ public class DefensiveAbility : Ability
 
 	private void HandleAbsorb(Fighter user, DamageType type)
 	{
-		user.AbsorbDamage(type);
+		user.AbsorbDamage(type, (Strength)Rarity);
 	}
 }
