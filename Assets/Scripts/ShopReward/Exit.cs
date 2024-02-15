@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Buy : MonoBehaviour
+public class Exit : MonoBehaviour
 {
     public Button button;
     public ShopController controller;
@@ -18,9 +18,10 @@ public class Buy : MonoBehaviour
 
     void TaskOnClick()
     {
-        //Player.dieFragments -= totalCost;
-        foreach(var x in controll.abilitiesBought)
+        controll.CloseShop();
+        foreach (var x in controll.abilitiesBought)
         {
+            // customiseDice(x);
         }
     }
 }

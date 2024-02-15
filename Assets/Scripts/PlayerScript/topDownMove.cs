@@ -15,6 +15,7 @@ public class topDownMove : MonoBehaviour
     private bool hatMenuIsOpen = false;
     public Enters ent;
     public Enters _ent2;
+    public Enters _ent3;
     float nrLevel;
 
     void Start()
@@ -38,6 +39,10 @@ public class topDownMove : MonoBehaviour
         {
             _ent2.exitCombat();
         }
+        if(nrLevel == 3)
+        {
+            _ent3.exitCombat();
+        }
         print("0");
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -56,6 +61,11 @@ public class topDownMove : MonoBehaviour
                 print("droped");
                 e.lv1Start();
                 nrLevel = 2;
+            }
+            if(e.lvName == "cave3")
+            {
+                e.lv1Start();
+                nrLevel = 3;
             }
         }
     }
