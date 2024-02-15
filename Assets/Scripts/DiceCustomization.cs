@@ -12,11 +12,13 @@ public class DiceCustomization : MonoBehaviour
     public Ability currentAbility;
     public GameObject[] objectsToActivate = new GameObject[9];
     public Button[] dieSides = new Button[6];
+    public Button Cancel;
+    public Button Confirm;
+    public Button NewAbility;
     public AbilityImages abilityImages;
 
     void Start()
     {
-
         dice = new(
             new Die(
                 Abilities.GetFromName("Bite"),
@@ -73,6 +75,7 @@ public class DiceCustomization : MonoBehaviour
         {
             GameObject.SetActive(true);
         }
+        deactivateCancelAndConfirm();
         Debug.Log("Components activated");
     }
     public void deactivateComponents()
@@ -94,18 +97,30 @@ public class DiceCustomization : MonoBehaviour
         };
         Debug.Log("Side index: " + sideIndex);
         Die die = dice.GetDie(dieType);
-        die.abilities[sideIndex] = ability;
-
+        die.abilities[sideIndex - 1] = ability;
     }
     private void randomiseAbility()
     {
         currentAbility = Abilities.GetFromRarity(CardRarity.Common);
+        Sprite texture = abilityImages.Get(currentAbility.Name);
+        NewAbility.image.sprite = texture;
         Debug.Log(currentAbility);
     }
     public void RegisterSelectedSide(int sideIndex)
     {
         selectedSideIndex = sideIndex;
+        activateCancelAndConfirm();
         Debug.Log("Selected side: " + sideIndex);
+    }
+    public void activateCancelAndConfirm()
+    {
+        Cancel.interactable = true;
+        Confirm.interactable = true;
+    }
+    public void deactivateCancelAndConfirm()
+    {
+        Cancel.interactable = false;
+        Confirm.interactable = false;
     }
     public void confirmation()
     {
@@ -122,5 +137,18 @@ public class DiceCustomization : MonoBehaviour
         {
             Debug.Log("No side selected to update ability.");
         }            
+    }
+    public void cancel()
+    {
+        if (selectedSideIndex >= 1)
+        {
+            deactivateCancelAndConfirm();
+            selectedSideIndex = -1;
+            Debug.Log("Deselected all sides");
+        }
+        else
+        {
+            Debug.Log("No side to deselect");
+        }
     }
 }
