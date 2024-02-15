@@ -13,7 +13,6 @@ public class Enters : MonoBehaviour
     [SerializeField] private GameObject combatBg;
     [SerializeField] private GameObject nextPart;
     [SerializeField] private GameObject combat;
-    [SerializeField] private GameObject lvTrigger;
     [SerializeField] private GameObject lightDarkness;
     [SerializeField] private GameObject darkness;
     public Player _player = new();
