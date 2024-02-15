@@ -1,6 +1,6 @@
 public enum Element
 {
-	Frost,
 	Fire,
+	Frost,
 	Poison
 }

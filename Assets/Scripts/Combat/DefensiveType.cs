@@ -1,4 +1,5 @@
 public enum DefensiveType
 {
-	Block
+	Block,
+	Heal
 }

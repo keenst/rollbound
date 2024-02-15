@@ -19,27 +19,31 @@ public class PhysicalAbility : Ability
 		_damage = damage;
 	}
 
-	public void UseCombo(Fighter target, MagicalAbility magicalAbility)
+	public DamageInfo UseCombo(Fighter user, Fighter target, MagicalAbility magicalAbility)
 	{
-		target.ApplyDamage(_damage * magicalAbility.Potency, (DamageType)magicalAbility.Element);
-		target.ApplyDamage(_damage * 1 - magicalAbility.Potency, (DamageType)magicalAbility.Element);
+		float damage = user.StatusEffect == StatusEffect.Frozen ? _damage * 0.6f : _damage;
+		DamageInfo a = target.ApplyDamage(damage * magicalAbility.Potency, (DamageType)magicalAbility.Element);
+		DamageInfo b = target.ApplyDamage(damage, DamageType.Physical);
+		return a + b;
 	}
 
-	public void Use(Fighter target)
+	public DamageInfo Use(Fighter user, Fighter target)
 	{
-		target.ApplyDamage(_damage, DamageType.Physical);
+		float damage = user.StatusEffect == StatusEffect.Frozen ? _damage * 0.6f : _damage;
+		return target.ApplyDamage(damage, DamageType.Physical);
 	}
 }
 
 public class MagicalAbility : Ability
 {
-	// The proportion of physical damage replaced by magical
 	public float Potency;
 
 	public Element Element;
 
-	public MagicalAbility(string name, CardRarity rarity) : base(name, rarity)
+	public MagicalAbility(string name, CardRarity rarity, Element element, float potency) : base(name, rarity)
 	{
+		Element = element;
+		Potency = potency;
 	}
 }
 
@@ -52,22 +56,43 @@ public class DefensiveAbility : Ability
 		_defensiveType = defensiveType;
 	}
 
-	public void UseCombo(Fighter user, MagicalAbility magicalAbility)
-	{
-	}
-
-	public void Use(Fighter user)
+	public DamageInfo UseCombo(Fighter user, MagicalAbility magicalAbility)
 	{
 		switch (_defensiveType)
 		{
 			case DefensiveType.Block:
-			{
-				HandleBlock();
-			} break;
+				HandleBlock(user, (DamageType)magicalAbility.Element);
+				break;
+			case DefensiveType.Heal:
+				HandleBlock(user, (DamageType)magicalAbility.Element);
+				break;
 		}
+
+		return new DamageInfo();
 	}
 
-	private void HandleBlock()
+	public DamageInfo Use(Fighter user)
 	{
+		switch (_defensiveType)
+		{
+			case DefensiveType.Block:
+				HandleBlock(user, DamageType.Physical);
+				break;
+			case DefensiveType.Heal:
+				HandleHeal(user, DamageType.Physical);
+				break;
+		}
+
+		return new DamageInfo();
+	}
+
+	private void HandleBlock(Fighter user, DamageType typeToBlock)
+	{
+		user.BlockDamage(typeToBlock);
+	}
+
+	private void HandleHeal(Fighter user, DamageType type)
+	{
+		user.HealDamage(type);
 	}
 }
