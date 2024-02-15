@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class DieButton : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class DieButton : MonoBehaviour
 	public CombatSystem combatSystem;
 	public Sprite[] rollingFrames;
 	public Sprite stillFrame;
+	public Image OverlayImage;
 
 	private bool _isRolling;
 	private Image _image;
+	private Sprite _currentOverlay;
 
 	private const int FrameDurationMS = 200;
 	private int _currentFrame;
@@ -18,18 +21,18 @@ public class DieButton : MonoBehaviour
 
 	public void Start()
 	{
+		Random rng = new();
+		_currentFrame = rng.Next(rollingFrames.Length);
 		_image = GetComponent<Image>();
+		OverlayImage.enabled = false;
 	}
 
 	public void Update()
 	{
 		if (!_isRolling) return;
-		Debug.Log("is rolling");
 
 		long timeNow = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
 		if (_lastFrameUpdateMS - timeNow > FrameDurationMS) return;
-
-		Debug.Log("frame update");
 
 		_lastFrameUpdateMS = timeNow;
 
@@ -40,23 +43,31 @@ public class DieButton : MonoBehaviour
 
 	public void OnClick()
 	{
+		if (_isRolling) return;
+
 		combatSystem.OnPickDie(dieType);
 	}
 
 	public void StartRolling()
 	{
 		_isRolling = true;
+
+		OverlayImage.enabled = false;
 	}
 
-	public void StopRolling()
+	private void StopRolling()
 	{
 		_isRolling = false;
 
 		_image.sprite = stillFrame;
+		OverlayImage.enabled = true;
+
+		OverlayImage.sprite = _currentOverlay;
 	}
 
-	public void StopInMS(int time)
+	public void StopInMS(Sprite overlay, int time)
 	{
+		_currentOverlay = overlay;
 		Invoke("StopRolling", (float)time / 1000);
 	}
 }

@@ -10,26 +10,26 @@ public class Player
 	{
 		Dice = new Dice(
 				new Die(
-					Abilities.GetFromName("Bite"),
-					Abilities.GetFromName("Bite"),
-					Abilities.GetFromName("Bite"),
-					Abilities.GetFromName("Bite"),
+					Abilities.GetFromName("Punch"),
+					Abilities.GetFromName("Punch"),
+					Abilities.GetFromName("Punch"),
+					Abilities.GetFromName("Punch"),
 					Abilities.GetFromName("Bite"),
 					Abilities.GetFromName("Bite")),
 				new Die(
 					Abilities.GetFromName("Ignite"),
 					Abilities.GetFromName("Ignite"),
-					Abilities.GetFromName("Ignite"),
-					Abilities.GetFromName("Ignite"),
-					Abilities.GetFromName("Ignite"),
-					Abilities.GetFromName("Ignite")),
+					Abilities.GetFromName("Poison"),
+					Abilities.GetFromName("Poison"),
+					Abilities.GetFromName("Freeze"),
+					Abilities.GetFromName("Freeze")),
 				new Die(
 					Abilities.GetFromName("Block"),
 					Abilities.GetFromName("Block"),
 					Abilities.GetFromName("Block"),
-					Abilities.GetFromName("Block"),
-					Abilities.GetFromName("Block"),
-					Abilities.GetFromName("Block")));
+					Abilities.GetFromName("Heal"),
+					Abilities.GetFromName("Heal"),
+					Abilities.GetFromName("Heal")));
 	}
 
 	public Fighter GetFighter()
