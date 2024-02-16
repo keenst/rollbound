@@ -16,6 +16,13 @@ public class DiceCustomization : MonoBehaviour
     public Button Confirm;
     public Button NewAbility;
     public AbilityImages abilityImages;
+	public List<Ability> abilityQueue;
+
+	public void Open(List<Ability> newAbilities, Dice dice)
+	{
+		abilityQueue = newAbilities;
+		openMenu(abilityQueue[0], dice);
+	}
 
     public void openMenu(Ability newAbility, Dice dice)
     {
@@ -98,6 +105,12 @@ public class DiceCustomization : MonoBehaviour
             Debug.Log("Ability on side " + selectedSideIndex + " updated to " + currentAbility);
             selectedSideIndex = -1;
             deactivateComponents();
+
+			abilityQueue.RemoveAt(0);
+			if (abilityQueue.Count != 0)
+			{
+				openMenu(abilityQueue[0], dice);
+			}
         }
         else
         {
