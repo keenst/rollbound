@@ -42,10 +42,6 @@ public class Enters : MonoBehaviour
         combSystm.OnStart(player.GetComponent<topDownMove>().Player, Enemies.GetFromName(enemyName));
         ani.SetBool("changeScene", false);
         print("start combat");
-        if (lvName == "cave1")
-        {
-            SoundManagerScript.PlaySound("Cave Combat Ambience");
-        }
     }
     public void exitCombat()
     {
@@ -66,19 +62,6 @@ public class Enters : MonoBehaviour
         print("3");
         player.transform.position = new Vector2(x, y);
         //lvTrigger.SetActive(false);
-        if (lvName == "cave1")
-        {
-            SoundManagerScript.PlaySound("Cave Ambience");
-        }
-        else if (lvName == "cave2")
-        {
-            SoundManagerScript.PlaySound("DungeonDeep Ambience");
-        }
-        else if (lvName == "cave3")
-        {
-            SoundManagerScript.PlaySound("Ruined Library Ambience");
-
-        }
     }
 
     void Start()
