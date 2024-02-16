@@ -25,6 +25,7 @@ public struct DamageInfo
 public class CombatSystem : MonoBehaviour
 {
 	public topDownMove topDownMove;
+	public RewardController rewardController;
 
 	public GameObject[] diceObjects;
 	public DieButton[] dieButtons;
@@ -342,6 +343,7 @@ public class CombatSystem : MonoBehaviour
 	private void WinBattle()
 	{
 		_playerStats.HP = _player.HP;
+		rewardController.OpenReward(_playerStats);
 		topDownMove.combatEnd();
 	}
 
