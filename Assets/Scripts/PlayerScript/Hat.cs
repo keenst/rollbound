@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class Hat : MonoBehaviour
 {
-    public GameObject pickebleHat;
-    public GameObject dunceHat;
-    public GameObject weareble;
+    public SpriteRenderer SR;
+    [SerializeField] private Sprite hatSprit;
+    [SerializeField] private GameObject pickebleHat;
+    [SerializeField] private GameObject hatButton;
+    [SerializeField] public GameObject weareble;
     public GameObject hatManu;
     bool hasPickedUpHat;
 
-    public GameObject partyHat;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player")
         {
+            hatButton.SetActive(true);
             weareble.SetActive(true);
             pickebleHat.SetActive(false);
             hasPickedUpHat = true;
-            partyHat.SetActive(true);
+            SR.sprite = hatSprit;
         }
     }
 
