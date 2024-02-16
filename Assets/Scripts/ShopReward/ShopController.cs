@@ -22,7 +22,7 @@ public class ShopController : MonoBehaviour
     {
         diceCustom = diceCustomization.GetComponent<DiceCustomization>();
 
-        //OpenShop(new Player());
+        OpenShop(new Player());
     }
 
     private void Update()
@@ -50,6 +50,7 @@ public class ShopController : MonoBehaviour
                 if (rng.Next(1, 3) != 1) continue;
                 
                 allButtons[i].gameObject.SetActive(true);
+                print("Borde generera bild");
                 allButtons[i].SetAbility(Abilities.GetFromRarity(CardRarity.Common));
             }
             else if (i<8)
