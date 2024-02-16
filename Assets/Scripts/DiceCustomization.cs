@@ -42,7 +42,6 @@ public class DiceCustomization : MonoBehaviour
                 Abilities.GetFromName("Block"),
                 Abilities.GetFromName("Block"))
             );
-        randomiseAbility();
         openMenu(currentAbility, dice);
     }
     public void openMenu(Ability newAbility, Dice dice)
@@ -99,13 +98,6 @@ public class DiceCustomization : MonoBehaviour
         Die die = dice.GetDie(dieType);
         die.abilities[sideIndex - 1] = ability;
     }
-    private void randomiseAbility()
-    {
-        currentAbility = Abilities.GetFromRarity(CardRarity.Common);
-        Sprite texture = abilityImages.Get(currentAbility.Name);
-        NewAbility.image.sprite = texture;
-        Debug.Log(currentAbility);
-    }
     public void RegisterSelectedSide(int sideIndex)
     {
         selectedSideIndex = sideIndex;
@@ -129,7 +121,6 @@ public class DiceCustomization : MonoBehaviour
             replaceAbility(currentAbility, selectedSideIndex, dice);
             Debug.Log("Ability on side " + selectedSideIndex + " updated to " + currentAbility);
             selectedSideIndex = -1;
-            randomiseAbility();
             deactivateComponents();
             openMenu(currentAbility, dice);
         }

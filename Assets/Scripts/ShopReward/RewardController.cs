@@ -101,7 +101,7 @@ public class RewardController : MonoBehaviour
                         player.DieFragments += 10;
                         break;
                     case CardRarity.Legendary:
-                        player.DieFragments += 30;
+                        player.DieFragments += 25;
                         break;
                 }
             }

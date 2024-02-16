@@ -17,6 +17,7 @@ public class ShopButton : MonoBehaviour
     {
         isSelected = false;
 
+
         controll = controller.GetComponent<ShopController>();
 
         button.onClick.AddListener(TaskOnClick);
@@ -24,15 +25,28 @@ public class ShopButton : MonoBehaviour
 
     void TaskOnClick()
     {
-        controll.ClearSelect();
         controll.IdleHand();
+        controll.selectedAbility = null;
+        controll.glow.SetActive(false);
 
         if (!isSelected)
         {
+            controll.glow.SetActive(true);
+            controll.glow.transform.position = button.transform.position;
             controller.MoveHand(button.transform);
+            controll.ClearSelect();
+
             isSelected = true;
+            controll.selectedAbility = buttonAbility;
         }
+        else
+        {
+            controll.ClearSelect();
+        }
+
     }
+
+
 
     public void SetAbility (Ability ability)
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -13,6 +14,8 @@ public class ShopController : MonoBehaviour
     public Vector3 goalPosition;
     public GameObject glow;
     private Player _player;
+    public Ability selectedAbility;
+
     void Start()
     {
         OpenShop(new Player());
@@ -20,13 +23,14 @@ public class ShopController : MonoBehaviour
 
     private void Update()
     {
-        float step = 500 * Time.deltaTime;
+        float step = 800 * Time.deltaTime;
         hand.transform.position = Vector3.MoveTowards(hand.transform.position, goalPosition, step);
     }
 
     // Generate abilities
     public void OpenShop(Player player)
     {
+        glow.SetActive(false);
         _player = player;
         hand.SetActive(true);
         hand.transform.position = new Vector3(600,750,0);
@@ -77,6 +81,8 @@ public class ShopController : MonoBehaviour
             // CustomiseDie(ability);
         }
         hand.SetActive(false);
+        glow.SetActive(false);
+
     }
 
 
@@ -85,6 +91,18 @@ public class ShopController : MonoBehaviour
         goalPosition.x = buttonTransform.position.x;
         goalPosition.y = buttonTransform.position.y + 40;
         print(goalPosition);
+    }
+
+
+    public void RemoveBoughtAbility()
+    {
+        foreach (var x in allButtons)
+        {
+            if (x.isSelected)
+            {
+                x.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void IdleHand()
@@ -98,10 +116,5 @@ public class ShopController : MonoBehaviour
         {
             x.isSelected = false;
         }
-    }
-
-    public void ShowGlow()
-    {
-        
     }
 }

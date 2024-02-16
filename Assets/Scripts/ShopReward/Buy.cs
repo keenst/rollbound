@@ -18,9 +18,9 @@ public class Buy : MonoBehaviour
 
     void TaskOnClick()
     {
-        //Player.dieFragments -= totalCost;
-        foreach(var x in controll.abilitiesBought)
-        {
-        }
+        controll.glow.SetActive(false);
+        controll.abilitiesBought.Add(controll.selectedAbility);
+        controller.RemoveBoughtAbility();
+        //Player.dieFragments -= 
     }
 }
