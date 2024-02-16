@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &942750396381676136
 RectTransform:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   - {fileID: 1158553216}
   - {fileID: 801630048}
   abilityImages: {fileID: 0}
-  diceCustomization: {fileID: 0}
+  diceCustom: {fileID: 0}
 --- !u!1 &1484863542485018738
 GameObject:
   m_ObjectHideFlags: 0

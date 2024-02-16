@@ -106,6 +106,7 @@ public class DiceCustomization : MonoBehaviour
             selectedSideIndex = -1;
             deactivateComponents();
 
+            print(abilityQueue.Count);
 			abilityQueue.RemoveAt(0);
 			if (abilityQueue.Count != 0)
 			{

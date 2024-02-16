@@ -86,12 +86,9 @@ public class ShopController : MonoBehaviour
     {
         foreach (var victim in domedagen)
         {
-            victim.gameObject.SetActive(false);
+            victim.SetActive(false);
         }
-        foreach (var ability in abilitiesBought)
-        {
-            diceCustom.openMenu(ability, _player.Dice);
-        }
+        diceCustom.Open(abilitiesBought, _player.Dice);
         this.gameObject.SetActive(false);
     }
 

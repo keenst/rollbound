@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using Unity.VisualScripting;
 using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
@@ -21,6 +22,10 @@ public class RewardController : MonoBehaviour
 
     private Player player;
 
+    public void Start()
+    {
+        OpenReward(new Player());
+    }
 
     public void OpenReward(Player player)
     {
@@ -81,33 +86,36 @@ public class RewardController : MonoBehaviour
         this.gameObject.SetActive(false);
 
         int go = 0;
+        List<Ability> abilitiesToKeep = new();
         while (go < 3)
         {
             if (shouldKeepAbilities[go])
             {
-                diceCustom.openMenu(displayedAbilities[go], player.Dice);
+                abilitiesToKeep.Add(displayedAbilities[go]);
             }
 
-            if (!shouldKeepAbilities[go])
-            {
-                switch (displayedAbilities[go].Rarity)
+                if (!shouldKeepAbilities[go])
                 {
-                    case CardRarity.Common:
-                        player.DieFragments += 5;
-                        break;
-                    case CardRarity.Rare:
-                        player.DieFragments += 10;
-                        break;
-                    case CardRarity.Legendary:
-                        player.DieFragments += 25;
-                        break;
+                    switch (displayedAbilities[go].Rarity)
+                    {
+                        case CardRarity.Common:
+                            player.DieFragments += 5;
+                            break;
+                        case CardRarity.Rare:
+                            player.DieFragments += 10;
+                            break;
+                        case CardRarity.Legendary:
+                            player.DieFragments += 25;
+                            break;
+                    }
                 }
-            }
 
-            go++;
-        }
-        print(player.DieFragments);
-        confirmButton.gameObject.SetActive(false);
-        
+                go++;
+            }
+            diceCustom.Open(abilitiesToKeep, player.Dice);
+            print(player.DieFragments);
+            confirmButton.gameObject.SetActive(false);
+
+
     }
 }
