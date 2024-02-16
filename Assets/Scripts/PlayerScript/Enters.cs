@@ -15,9 +15,9 @@ public class Enters : MonoBehaviour
     [SerializeField] private GameObject combat;
     [SerializeField] private GameObject lightDarkness;
     [SerializeField] private GameObject darkness;
+    [SerializeField] private string enemyName;
     private AudioClip ambience;
     private AudioClip combatAmbience;
-    public Player _player = new();
     public CombatSystem combSystm;
     public float x;
     public float y;
@@ -39,7 +39,7 @@ public class Enters : MonoBehaviour
         cam.SetActive(true);
         combatBg.SetActive(true);
         combat.SetActive(true);
-        combSystm.OnStart(_player, Enemies.GetFromName("Zombie"));
+        combSystm.OnStart(player.GetComponent<topDownMove>().Player, Enemies.GetFromName(enemyName));
         ani.SetBool("changeScene", false);
         print("start combat");
         if (lvName == "cave1")

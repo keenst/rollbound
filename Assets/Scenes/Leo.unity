@@ -265,6 +265,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 910309197}
     m_Modifications:
     - target: {fileID: 834136392015161627, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
+      propertyPath: diceCustom
+      value: 
+      objectReference: {fileID: 5168643468670838109}
+    - target: {fileID: 834136392015161627, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
       propertyPath: abilityImages
       value: 
       objectReference: {fileID: 2111738807}
@@ -1772,6 +1776,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &700187702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 700187703}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &700187703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700187702}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.07, y: -0.28, z: -0.38916102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &719327652
 GameObject:
   m_ObjectHideFlags: 0
@@ -6462,7 +6497,7 @@ MonoBehaviour:
   normalPlayer: {fileID: 0}
   speed: 4
   ani: {fileID: 1766139393}
-  startTransform: {fileID: 0}
+  startTransform: {fileID: 700187703}
   hatMenu: {fileID: 1761149752}
   _hat: {fileID: 0}
   ent: {fileID: 753729569}
