@@ -21,6 +21,7 @@ public class topDownMove : MonoBehaviour
     public Enters _ent3;
     float nrLevel;
     public RuntimeAnimatorController topDownController;
+    public ShopController shop;
 
     void Start()
     {
@@ -75,6 +76,10 @@ public class topDownMove : MonoBehaviour
                 nrLevel = 3;
                 ani.SetBool("topDown", true);
             }
+        }
+        if(other.tag == "shot")
+        {
+            shop.OpenShop(Player);
         }
     }
     void Update()
