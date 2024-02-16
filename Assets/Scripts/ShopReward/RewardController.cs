@@ -21,12 +21,6 @@ public class RewardController : MonoBehaviour
 
     private Player player;
 
-    void Start()
-    {
-
-
-
-    }
 
     public void OpenReward(Player player)
     {
