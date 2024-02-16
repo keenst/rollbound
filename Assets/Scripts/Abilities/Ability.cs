@@ -10,6 +10,7 @@ public class Ability
 	{
 		Name = name;
 		Rarity = rarity;
+		Quote = quote;
 		Description = description;
 		Cost = cost;
 	}

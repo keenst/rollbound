@@ -69,9 +69,6 @@ MonoBehaviour:
   - Name: Stab
     Card: {fileID: 21300000, guid: b2e8f8636bec77d42866f61b739193a3, type: 3}
     Overlay: {fileID: 21300000, guid: 5ab9d67256a397544849d895a75a2448, type: 3}
-  - Name: Slash
-    Card: {fileID: 21300000, guid: dba88c4ffe8ea53419629a44b1248697, type: 3}
-    Overlay: {fileID: 21300000, guid: 879c2a180f80aac4dbce6deb58224db6, type: 3}
   - Name: Poison
     Card: {fileID: 21300000, guid: 4abba5e5138fb354ea320db37d128408, type: 3}
     Overlay: {fileID: 21300000, guid: 6dc2ff38e3a0a224eadb5f535fbf3ae0, type: 3}
