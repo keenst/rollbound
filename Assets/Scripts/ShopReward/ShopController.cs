@@ -15,12 +15,12 @@ public class ShopController : MonoBehaviour
     public GameObject glow;
     private Player _player;
     public Ability selectedAbility;
-    public DiceCustomization diceCustomization;
-    private DiceCustomization diceCustom;
+    public DiceCustomization diceCustom;
+    public List<GameObject> domedagen;
+    public Text quote;
 
     void Start()
     {
-        diceCustom = diceCustomization.GetComponent<DiceCustomization>();
 
         OpenShop(new Player());
     }
@@ -50,7 +50,6 @@ public class ShopController : MonoBehaviour
                 if (rng.Next(1, 3) != 1) continue;
                 
                 allButtons[i].gameObject.SetActive(true);
-                print("Borde generera bild");
                 allButtons[i].SetAbility(Abilities.GetFromRarity(CardRarity.Common));
             }
             else if (i<8)
@@ -74,26 +73,24 @@ public class ShopController : MonoBehaviour
         
     }
 
-    public void CompletePurchase()
-    {
-        _player.DieFragments -= 3;
-    }
 
     public void CloseShop()
     {
+        foreach (var victim in domedagen)
+        {
+            victim.gameObject.SetActive(false);
+        }
         foreach (var ability in abilitiesBought)
         {
             diceCustom.openMenu(ability, _player.Dice);
         }
-        hand.SetActive(false);
-        glow.SetActive(false);
-
     }
 
     public void BuyAbility()
     {
         if (_player.DieFragments >= selectedAbility.Cost)
         {
+            _player.DieFragments -= selectedAbility.Cost;
             glow.gameObject.SetActive(true);
             abilitiesBought.Add(selectedAbility);
             RemoveBoughtAbility();

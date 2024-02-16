@@ -8,16 +8,13 @@ public class Exit : MonoBehaviour
     public Button button;
     public ShopController controller;
 
-    private ShopController controll;
     void Start()
     {
-        controll = controller.GetComponent<ShopController>();
-
         button.onClick.AddListener(TaskOnClick);
     }
 
     void TaskOnClick()
     {
-        controll.CloseShop();
+        controller.CloseShop();
     }
 }

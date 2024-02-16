@@ -2701,7 +2701,27 @@ MonoBehaviour:
   hand: {fileID: 7319951638225906320}
   goalPosition: {x: 0, y: 0, z: 0}
   glow: {fileID: 3641213673604138757}
-  diceCustomization: {fileID: 0}
+  diceCustom: {fileID: 0}
+  domedagen:
+  - {fileID: 3641213673604138757}
+  - {fileID: 1940021754}
+  - {fileID: 412001697}
+  - {fileID: 555246325}
+  - {fileID: 881944251}
+  - {fileID: 495341697}
+  - {fileID: 662323540}
+  - {fileID: 1250249321}
+  - {fileID: 1605304422}
+  - {fileID: 1922632697}
+  - {fileID: 1121315053}
+  - {fileID: 1263259284}
+  - {fileID: 1173167810}
+  - {fileID: 929593434}
+  - {fileID: 7319951638225906320}
+  - {fileID: 370502508}
+  - {fileID: 1976877032}
+  - {fileID: 1262261381}
+  - {fileID: 720229837}
 --- !u!1 &3049233584104142642
 GameObject:
   m_ObjectHideFlags: 0
