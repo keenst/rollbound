@@ -9,6 +9,8 @@ public class topDownMove : MonoBehaviour
     Vector2 direction;
     public float speed;
     public Animator ani;
+	public Player Player;
+	public Transform startTransform;
     bool hasPickedUpHat;
     public GameObject hatMenu;
     public Hat _hat;
@@ -29,6 +31,11 @@ public class topDownMove : MonoBehaviour
         
 
     }
+	public void combatLose()
+	{
+		transform.position = startTransform.position;
+		Player = new Player();
+	}
     public void combatEnd()
     {
         if(nrLevel == 1)
