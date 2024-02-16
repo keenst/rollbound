@@ -42,7 +42,7 @@ public class DiceCustomization : MonoBehaviour
                 Abilities.GetFromName("Block"),
                 Abilities.GetFromName("Block"))
             );
-        openMenu(currentAbility, dice);
+
     }
     public void openMenu(Ability newAbility, Dice dice)
     {
@@ -122,7 +122,6 @@ public class DiceCustomization : MonoBehaviour
             Debug.Log("Ability on side " + selectedSideIndex + " updated to " + currentAbility);
             selectedSideIndex = -1;
             deactivateComponents();
-            openMenu(currentAbility, dice);
         }
         else
         {

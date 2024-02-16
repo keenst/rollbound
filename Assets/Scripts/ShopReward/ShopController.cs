@@ -15,6 +15,7 @@ public class ShopController : MonoBehaviour
     public GameObject glow;
     private Player _player;
     public Ability selectedAbility;
+    public DiceCustomization diceCustomization;
 
     void Start()
     {

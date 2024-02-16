@@ -16,14 +16,16 @@ public class RewardController : MonoBehaviour
     public bool[] shouldKeepAbilities = {true, true, true};
     public RewardButton[] rewardButtons = new RewardButton[3];
     public AbilityImages abilityImages;
+    public DiceCustomization diceCustomization;
+    private DiceCustomization diceCustom;
 
-    public DiceCustomization diceCustomiser;
     private Player player;
 
     void Start()
     {
-        OpenReward(new Player());
-        
+        diceCustom = diceCustomization.GetComponent<DiceCustomization>();
+        //OpenReward(new Player());
+
     }
 
     public void OpenReward(Player player)
