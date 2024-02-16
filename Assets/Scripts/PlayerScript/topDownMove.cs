@@ -25,6 +25,7 @@ public class topDownMove : MonoBehaviour
     void Start()
     {
         hatMenuIsOpen = false;
+		Player = new Player();
 
     }
 	public void combatLose()

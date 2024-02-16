@@ -15,14 +15,16 @@ public class Enters : MonoBehaviour
     [SerializeField] private GameObject combat;
     [SerializeField] private GameObject lightDarkness;
     [SerializeField] private GameObject darkness;
-    public Player _player = new();
+    [SerializeField] private string enemyName;
+    private AudioClip ambience;
+    private AudioClip combatAmbience;
     public CombatSystem combSystm;
     public float x;
     public float y;
 
     bool outofComb = false;
     bool intoComb = false;
-
+    
     public void lv1Start()
     {
         intoComb = true;
@@ -37,9 +39,13 @@ public class Enters : MonoBehaviour
         cam.SetActive(true);
         combatBg.SetActive(true);
         combat.SetActive(true);
-        combSystm.OnStart(_player, Enemies.GetFromName("Zombie"));
+        combSystm.OnStart(player.GetComponent<topDownMove>().Player, Enemies.GetFromName(enemyName));
         ani.SetBool("changeScene", false);
         print("start combat");
+        if (lvName == "cave1")
+        {
+            SoundManagerScript.PlaySound("Cave Combat Ambience");
+        }
     }
     public void exitCombat()
     {
@@ -60,7 +66,19 @@ public class Enters : MonoBehaviour
         print("3");
         player.transform.position = new Vector2(x, y);
         //lvTrigger.SetActive(false);
+        if (lvName == "cave1")
+        {
+            SoundManagerScript.PlaySound("Cave Ambience");
+        }
+        else if (lvName == "cave2")
+        {
+            SoundManagerScript.PlaySound("DungeonDeep Ambience");
+        }
+        else if (lvName == "cave3")
+        {
+            SoundManagerScript.PlaySound("Ruined Library Ambience");
 
+        }
     }
 
     void Start()

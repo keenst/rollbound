@@ -332,6 +332,9 @@ public class CombatSystem : MonoBehaviour
 	private void LoseBattle()
 	{
 		topDownMove.combatLose();
+
+		playerCard1.enabled = false;
+		playerCard2.enabled = false;
 	}
 
 	private void WinBattle()
@@ -339,6 +342,9 @@ public class CombatSystem : MonoBehaviour
 		_playerStats.HP = _player.HP;
 		rewardController.OpenReward(_playerStats);
 		topDownMove.combatEnd();
+
+		playerCard1.enabled = false;
+		playerCard2.enabled = false;
 	}
 
 	private bool UpdateInfo()
