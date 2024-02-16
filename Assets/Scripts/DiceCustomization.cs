@@ -20,6 +20,8 @@ public class DiceCustomization : MonoBehaviour
     public void openMenu(Ability newAbility, Dice dice)
     {
         currentAbility = newAbility;
+		this.dice = dice;
+		NewAbility.image.sprite = abilityImages.Get(newAbility.Name);
         activateComponents();
         Die die = dice.GetDie(DieType.Physical);
         switch (currentAbility)
