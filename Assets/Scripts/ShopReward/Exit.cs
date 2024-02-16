@@ -19,9 +19,5 @@ public class Exit : MonoBehaviour
     void TaskOnClick()
     {
         controll.CloseShop();
-        foreach (var x in controll.abilitiesBought)
-        {
-            // customiseDice(x);
-        }
     }
 }

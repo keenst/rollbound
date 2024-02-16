@@ -16,10 +16,13 @@ public class ShopController : MonoBehaviour
     private Player _player;
     public Ability selectedAbility;
     public DiceCustomization diceCustomization;
+    private DiceCustomization diceCustom;
 
     void Start()
     {
-        OpenShop(new Player());
+        diceCustom = diceCustomization.GetComponent<DiceCustomization>();
+
+        //OpenShop(new Player());
     }
 
     private void Update()
@@ -79,11 +82,25 @@ public class ShopController : MonoBehaviour
     {
         foreach (var ability in abilitiesBought)
         {
-            // CustomiseDie(ability);
+            diceCustom.openMenu(ability, _player.Dice);
         }
         hand.SetActive(false);
         glow.SetActive(false);
 
+    }
+
+    public void BuyAbility()
+    {
+        if (_player.DieFragments >= selectedAbility.Cost)
+        {
+            glow.gameObject.SetActive(true);
+            abilitiesBought.Add(selectedAbility);
+            RemoveBoughtAbility();
+        }
+        else
+        {
+            Debug.Log("Cannot afford.");
+        }
     }
 
 

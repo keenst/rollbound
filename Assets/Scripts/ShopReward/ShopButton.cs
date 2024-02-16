@@ -9,7 +9,6 @@ public class ShopButton : MonoBehaviour
     public Button button;
     public ShopController controller;
     public bool isSelected;
-    private ShopController controll;
     public AbilityImages abilityImages;
     public Ability buttonAbility;
 
@@ -18,30 +17,29 @@ public class ShopButton : MonoBehaviour
         isSelected = false;
 
 
-        controll = controller.GetComponent<ShopController>();
 
         button.onClick.AddListener(TaskOnClick);
     }
 
     void TaskOnClick()
     {
-        controll.IdleHand();
-        controll.selectedAbility = null;
-        controll.glow.SetActive(false);
+        controller.IdleHand();
+        controller.selectedAbility = null;
+        controller.glow.SetActive(false);
 
         if (!isSelected)
         {
-            controll.glow.SetActive(true);
-            controll.glow.transform.position = button.transform.position;
+            controller.glow.SetActive(true);
+            controller.glow.transform.position = button.transform.position;
             controller.MoveHand(button.transform);
-            controll.ClearSelect();
+            controller.ClearSelect();
 
             isSelected = true;
-            controll.selectedAbility = buttonAbility;
+            controller.selectedAbility = buttonAbility;
         }
         else
         {
-            controll.ClearSelect();
+            controller.ClearSelect();
         }
 
     }
