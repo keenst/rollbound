@@ -35,6 +35,22 @@ public class Dice
 		Debug.Log($"Die of type {type} not found");
 		return null;
 	}
+
+	public void ChangeAbility(DieType type, int side, Ability ability)
+	{
+		switch (type)
+		{
+			case DieType.Physical:
+				_physical.abilities[side] = ability;
+				break;
+			case DieType.Magical:
+				_magical.abilities[side] = ability;
+				break;
+			case DieType.Defensive:
+				_defensive.abilities[side] = ability;
+				break;
+		}
+	}
 }
 
 public class Die

@@ -78,8 +78,7 @@ public class DiceCustomization : MonoBehaviour
             _ => DieType.Physical
         };
         Debug.Log("Side index: " + sideIndex);
-        Die die = dice.GetDie(dieType);
-        die.abilities[sideIndex - 1] = ability;
+		dice.ChangeAbility(dieType, sideIndex, ability);
     }
     public void RegisterSelectedSide(int sideIndex)
     {

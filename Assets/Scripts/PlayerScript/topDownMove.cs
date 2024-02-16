@@ -32,6 +32,7 @@ public class topDownMove : MonoBehaviour
 	{
 		transform.position = startTransform.position;
 		Player = new Player();
+		combatEnd();
 	}
     public void combatEnd()
     {
