@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8691276967417572437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1185840411441458087}
+  - component: {fileID: 5782131794992012205}
+  m_Layer: 0
+  m_Name: EnemyImages
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1185840411441458087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691276967417572437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.278631, y: 2.394012, z: -0.41308585}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5782131794992012205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691276967417572437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99735fec99b2386449cb900c296a8121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dictionary:
+  - Name: Bat
+    Sprite: {fileID: 21300000, guid: 1067106450b5ea549b508c453db2b8fb, type: 3}
+  - Name: Final Boss
+    Sprite: {fileID: 21300000, guid: 05a16e80bafb40b44a9d150a5cbc8d93, type: 3}
+  - Name: Lizard
+    Sprite: {fileID: 21300000, guid: 14cc365d408e95246904cbb9d2fd0d0e, type: 3}
+  - Name: Physical Boss
+    Sprite: {fileID: 21300000, guid: e44c5f9fa22104444bd15249dd2274c7, type: 3}
+  - Name: Spitter
+    Sprite: {fileID: 21300000, guid: 864492df845e8054ab1329e5e5317095, type: 3}
+  - Name: Zombie
+    Sprite: {fileID: 21300000, guid: cc73f06372ea35c4ba20aed1c397c158, type: 3}
