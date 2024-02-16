@@ -24,12 +24,12 @@ public class Player
 					Abilities.GetFromName("Freeze"),
 					Abilities.GetFromName("Freeze")),
 				new Die(
-					Abilities.GetFromName("Block"),
-					Abilities.GetFromName("Block"),
-					Abilities.GetFromName("Block"),
-					Abilities.GetFromName("Heal"),
-					Abilities.GetFromName("Heal"),
-					Abilities.GetFromName("Heal")));
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots"),
+					Abilities.GetFromName("Battle Boots")));
 	}
 
 	public Fighter GetFighter()

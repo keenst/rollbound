@@ -33,6 +33,11 @@ public class CombatSystem : MonoBehaviour
 	public Image enemyCard1;
 	public Image enemyCard2;
 
+	public Image playerCardRarity1;
+	public Image playerCardRarity2;
+	public Image enemyCardRarity1;
+	public Image enemyCardRarity2;
+
 	public Image[] playerStatusCards1;
 	public Image[] playerStatusCards2;
 	public Image[] enemyStatusCards1;
@@ -115,7 +120,19 @@ public class CombatSystem : MonoBehaviour
 			playerCard1.sprite = abilityImages.Get(_firstPick.Name);
 			playerCard2.sprite = abilityImages.Get(_secondPick.Name);
 
+			playerCardRarity1.enabled = true;
+			playerCardRarity2.enabled = true;
+			playerCardRarity1.sprite = abilityImages.GetRarityOverlay(_firstPick.Rarity);
+			playerCardRarity2.sprite = abilityImages.GetRarityOverlay(_secondPick.Rarity);
+
 			DisableDice();
+
+			if (_player.ToHeal > 0)
+			{
+				_player.HP = Mathf.Min(_player.HP + _player.ToHeal, _player.MaxHP);
+				_playerDamageInfo.DamageHealed += _player.ToHeal;
+				_player.ToHeal = 0;
+			}
 
 			bool gameOver = UpdateInfo();
 			if (gameOver) return;
@@ -239,6 +256,8 @@ public class CombatSystem : MonoBehaviour
 
 		playerCard1.enabled = false;
 		playerCard2.enabled = false;
+		playerCardRarity1.enabled = false;
+		playerCardRarity2.enabled = false;
 
 		Ability[] abilities = new Ability[2];
 
@@ -256,8 +275,8 @@ public class CombatSystem : MonoBehaviour
 			// Pick random die
 			int die = _rng.Next(2);
 
-			// Make sure enemy doesn't pick 2 magical abilities in a row
-			if (i == 1 && die == 1)
+			// Make sure enemy doesn't pick 2 magical abilities in a row and that it doesn't pick a magical ability if it doesn't have any
+			if (i == 1 && die == 1 || _enemy.Dice.GetDie(DieType.Magical) == null)
 			{
 				die += _rng.Next(1) == 0 ? 1 : -1;
 			}
@@ -269,6 +288,13 @@ public class CombatSystem : MonoBehaviour
 
 		ExecuteAbilities(abilities[0], abilities[1], _enemy, _player, ref _enemyDamageInfo, ref _playerDamageInfo);
 
+		if (_enemy.ToHeal > 0)
+		{
+			_enemy.HP = Mathf.Min(_enemy.HP + _enemy.ToHeal, _enemy.MaxHP);
+			_enemyDamageInfo.DamageHealed += _enemy.ToHeal;
+			_enemy.ToHeal = 0;
+		}
+
 		UpdateInfo();
 
 		_player.ResetDefensiveStatus();
@@ -277,6 +303,11 @@ public class CombatSystem : MonoBehaviour
 		enemyCard2.enabled = true;
 		enemyCard1.sprite = abilityImages.Get(abilities[0].Name);
 		enemyCard2.sprite = abilityImages.Get(abilities[1].Name);
+
+		enemyCardRarity1.enabled = true;
+		enemyCardRarity2.enabled = true;
+		enemyCardRarity1.sprite = abilityImages.GetRarityOverlay(abilities[0].Rarity);
+		enemyCardRarity2.sprite = abilityImages.GetRarityOverlay(abilities[1].Rarity);
 
 		Invoke("PlayerTurn", 1.5f);
 	}
@@ -290,6 +321,8 @@ public class CombatSystem : MonoBehaviour
 
 		enemyCard1.enabled = false;
 		enemyCard2.enabled = false;
+		enemyCardRarity1.enabled = false;
+		enemyCardRarity2.enabled = false;
 
 		EnableDice();
 		_isFirstPick = true;
@@ -303,7 +336,6 @@ public class CombatSystem : MonoBehaviour
 	{
 		print("-1");
 		_playerStats.HP = _player.HP;
-		enterCaveScript.combatEnd();
 	}
 
 	private bool UpdateInfo()
@@ -319,6 +351,10 @@ public class CombatSystem : MonoBehaviour
 
 		UpdateDamageInfo(playerDamageInfoText, _playerDamageInfo);
 		UpdateDamageInfo(enemyDamageInfoText, _enemyDamageInfo);
+
+		// TODO: maybe (re)move these?
+		_playerDamageInfo = new DamageInfo();
+		_enemyDamageInfo = new DamageInfo();
 
 		if (_player.HP <= 0 || _enemy.HP <= 0)
 		{
@@ -383,12 +419,21 @@ public class CombatSystem : MonoBehaviour
 
 			DefensiveStatus status = fighter.DefensiveStatuses[i];
 
-			card1.sprite = status.DefensiveType switch
+			switch (status.DefensiveType)
 			{
-				DefensiveType.Block => abilityImages.Get("Block"),
-				DefensiveType.Heal => abilityImages.Get("Heal"),
-				_ => null
-			};
+				case DefensiveType.Block:
+					card1.sprite = abilityImages.Get("Parry");
+					break;
+				case DefensiveType.Heal:
+					card1.sprite = status.Strength switch
+					{
+						Strength.Weak => abilityImages.Get("Battle Boots"),
+						Strength.Medium => abilityImages.Get("Broken Helmet"),
+						Strength.Strong => abilityImages.Get("Golden Chestplate"),
+						_ => null
+					};
+					break;
+			}
 
 			if (status.DamageType != DamageType.Physical)
 			{

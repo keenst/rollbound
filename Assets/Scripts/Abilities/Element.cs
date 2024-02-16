@@ -2,5 +2,6 @@ public enum Element
 {
 	Fire,
 	Frost,
-	Poison
+	Poison,
+	Holy
 }

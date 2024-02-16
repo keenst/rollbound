@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a856ae7d10b1f24b96ede2efb9a77e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  common: {fileID: 21300000, guid: 96ae8b8e3ce4376418cdbac1b0856f81, type: 3}
+  rare: {fileID: 21300000, guid: 89e8a7874c96d0f4fb148e9bd8275764, type: 3}
+  legendary: {fileID: 21300000, guid: 7a10cd5bfb298ea4f997fe1f3ed048bc, type: 3}
   _dictionary:
   - Name: Bite
     Card: {fileID: 21300000, guid: cb83b90e14c4eef42a4acdce172a92eb, type: 3}
@@ -51,15 +54,15 @@ MonoBehaviour:
   - Name: Freeze
     Card: {fileID: 21300000, guid: e235136aac538254ab3ae434c71b2355, type: 3}
     Overlay: {fileID: 21300000, guid: 4d95a9defc8ca0f42a019ea5bda1dd82, type: 3}
-  - Name: Heal
+  - Name: Herbal Tonic
     Card: {fileID: 21300000, guid: fad40fb2998d19b478c9af8569ccd600, type: 3}
     Overlay: {fileID: 21300000, guid: 9b198ad0a7b0d624f966161f7cd6bd9e, type: 3}
   - Name: Ignite
     Card: {fileID: 21300000, guid: 4962bcbb4374dfc45989c585a34d329b, type: 3}
     Overlay: {fileID: 21300000, guid: d6f55047079b6494d97637f2cb4d88dc, type: 3}
-  - Name: Block
+  - Name: Parry
     Card: {fileID: 21300000, guid: 94772560e57bf534fa78d454b840c8d9, type: 3}
-    Overlay: {fileID: 21300000, guid: a64a018290f07b148bc21c87cb18b954, type: 3}
+    Overlay: {fileID: 21300000, guid: 235eac4e0f7bf94479e0c15ee4887eec, type: 3}
   - Name: Rock Throw
     Card: {fileID: 21300000, guid: 34afd516d82ecc541b2a814ee9582971, type: 3}
     Overlay: {fileID: 21300000, guid: 4c6568be4b4315d40a8b887ea7c7a629, type: 3}
@@ -79,5 +82,8 @@ MonoBehaviour:
     Card: {fileID: 21300000, guid: 1d7437e31b10d6d43b880c6c3b999397, type: 3}
     Overlay: {fileID: 21300000, guid: 3fa4dc974145ae248991f5e71f5ee14c, type: 3}
   - Name: Crossbow
-    Card: {fileID: 21300000, guid: 1d7437e31b10d6d43b880c6c3b999397, type: 3}
+    Card: {fileID: 21300000, guid: 1448b4aad833a2a45a7e081a800ca851, type: 3}
     Overlay: {fileID: 21300000, guid: 59d1165a740e7f2428f0587450380444, type: 3}
+  - Name: Battle Boots
+    Card: {fileID: 21300000, guid: 1d7437e31b10d6d43b880c6c3b999397, type: 3}
+    Overlay: {fileID: 21300000, guid: 3fa4dc974145ae248991f5e71f5ee14c, type: 3}

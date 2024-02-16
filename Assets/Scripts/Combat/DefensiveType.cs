@@ -1,5 +1,7 @@
 public enum DefensiveType
 {
 	Block,
-	Heal
+	Heal,
+	HerbalTonic,
+	Counter
 }
