@@ -272,14 +272,6 @@ PrefabInstance:
       propertyPath: abilityImages
       value: 
       objectReference: {fileID: 2111738807}
-    - target: {fileID: 834136392015161627, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
-      propertyPath: diceCustomiser
-      value: 
-      objectReference: {fileID: 5168643468670838109}
-    - target: {fileID: 834136392015161627, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
-      propertyPath: diceCustomization
-      value: 
-      objectReference: {fileID: 5168643468670838109}
     - target: {fileID: 942750396381676136, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -367,10 +359,6 @@ PrefabInstance:
     - target: {fileID: 958598372628379304, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
       propertyPath: m_Name
       value: Rewards
-      objectReference: {fileID: 0}
-    - target: {fileID: 958598372628379304, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
@@ -6505,6 +6493,7 @@ MonoBehaviour:
   ent: {fileID: 753729569}
   _ent2: {fileID: 399565508}
   _ent3: {fileID: 1793606521}
+  topDownController: {fileID: 0}
 --- !u!95 &1766139393
 Animator:
   serializedVersion: 4

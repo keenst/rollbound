@@ -50,6 +50,7 @@ public class Dice
 				_defensive.abilities[side] = ability;
 				break;
 		}
+		Debug.Log("changed ability");
 	}
 }
 

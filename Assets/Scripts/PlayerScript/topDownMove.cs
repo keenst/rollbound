@@ -30,9 +30,10 @@ public class topDownMove : MonoBehaviour
     }
 	public void combatLose()
 	{
-		transform.position = startTransform.position;
+		Debug.Log("dead");
 		Player = new Player();
 		combatEnd();
+		transform.position = startTransform.position;
 	}
     public void combatEnd()
     {

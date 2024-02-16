@@ -339,7 +339,6 @@ public class CombatSystem : MonoBehaviour
 
 	private void WinBattle()
 	{
-		_playerStats.HP = _player.HP;
 		rewardController.OpenReward(_playerStats);
 		topDownMove.combatEnd();
 
