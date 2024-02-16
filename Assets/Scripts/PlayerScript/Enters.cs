@@ -37,7 +37,7 @@ public class Enters : MonoBehaviour
         cam.SetActive(true);
         combatBg.SetActive(true);
         combat.SetActive(true);
-        combSystm.OnStart(_player, Enemies.GetFromName("Test"));
+        combSystm.OnStart(_player, Enemies.GetFromName("Zombie"));
         ani.SetBool("changeScene", false);
         print("start combat");
     }

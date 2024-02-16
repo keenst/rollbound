@@ -17,35 +17,9 @@ public class DiceCustomization : MonoBehaviour
     public Button NewAbility;
     public AbilityImages abilityImages;
 
-    void Start()
-    {
-        dice = new(
-            new Die(
-                Abilities.GetFromName("Bite"),
-                Abilities.GetFromName("Bite"),
-                Abilities.GetFromName("Bite"),
-                Abilities.GetFromName("Rock Throw"),
-                Abilities.GetFromName("Rock Throw"),
-                Abilities.GetFromName("Rock Throw")),
-            new Die(
-                Abilities.GetFromName("Ignite"),
-                Abilities.GetFromName("Ignite"),
-                Abilities.GetFromName("Ignite"),
-                Abilities.GetFromName("Freeze"),
-                Abilities.GetFromName("Freeze"),
-                Abilities.GetFromName("Freeze")),
-            new Die(
-                Abilities.GetFromName("Heal"),
-                Abilities.GetFromName("Heal"),
-                Abilities.GetFromName("Heal"),
-                Abilities.GetFromName("Block"),
-                Abilities.GetFromName("Block"),
-                Abilities.GetFromName("Block"))
-            );
-        openMenu(currentAbility, dice);
-    }
     public void openMenu(Ability newAbility, Dice dice)
     {
+        currentAbility = newAbility;
         activateComponents();
         Die die = dice.GetDie(DieType.Physical);
         switch (currentAbility)
@@ -122,7 +96,6 @@ public class DiceCustomization : MonoBehaviour
             Debug.Log("Ability on side " + selectedSideIndex + " updated to " + currentAbility);
             selectedSideIndex = -1;
             deactivateComponents();
-            openMenu(currentAbility, dice);
         }
         else
         {

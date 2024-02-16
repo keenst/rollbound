@@ -5,10 +5,14 @@ using UnityEngine;
 public class topDownMove : MonoBehaviour
 {
     public Rigidbody2D rb;
-    //public SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
+    public Sprite topDownPlayer;
+    public Sprite normalPlayer;
     Vector2 direction;
     public float speed;
     public Animator ani;
+	public Player Player;
+	public Transform startTransform;
     bool hasPickedUpHat;
     public GameObject hatMenu;
     public Hat _hat;
@@ -23,12 +27,11 @@ public class topDownMove : MonoBehaviour
         hatMenuIsOpen = false;
 
     }
-    void enterLevel(string lvName)
-    {
-        print("UwU");
-        
-
-    }
+	public void combatLose()
+	{
+		transform.position = startTransform.position;
+		Player = new Player();
+	}
     public void combatEnd()
     {
         if(nrLevel == 1)
@@ -42,6 +45,7 @@ public class topDownMove : MonoBehaviour
         if(nrLevel == 3)
         {
             _ent3.exitCombat();
+            spriteRenderer.sprite = topDownPlayer;
         }
         print("0");
     }

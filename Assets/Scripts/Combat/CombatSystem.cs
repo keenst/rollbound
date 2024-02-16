@@ -24,6 +24,9 @@ public struct DamageInfo
 
 public class CombatSystem : MonoBehaviour
 {
+	public topDownMove topDownMove;
+	public RewardController rewardController;
+
 	public GameObject[] diceObjects;
 	public DieButton[] dieButtons;
 	public AbilityImages abilityImages;
@@ -77,12 +80,6 @@ public class CombatSystem : MonoBehaviour
 	private Ability _secondPick;
 
 	private static Random _rng = new();
-
-	// TODO: Remove
-	public void Start()
-	{
-		OnStart(new Player(), Enemies.GetFromName("Test"));
-	}
 
 	public void OnStart(Player player, Fighter enemy)
 	{
@@ -332,10 +329,16 @@ public class CombatSystem : MonoBehaviour
 		_enemy.ResetDefensiveStatus();
 	}
 
-	private void EndBattle()
+	private void LoseBattle()
 	{
-		print("-1");
+		topDownMove.combatLose();
+	}
+
+	private void WinBattle()
+	{
 		_playerStats.HP = _player.HP;
+		rewardController.OpenReward(_playerStats);
+		topDownMove.combatEnd();
 	}
 
 	private bool UpdateInfo()
@@ -356,10 +359,16 @@ public class CombatSystem : MonoBehaviour
 		_playerDamageInfo = new DamageInfo();
 		_enemyDamageInfo = new DamageInfo();
 
-		if (_player.HP <= 0 || _enemy.HP <= 0)
+		if (_player.HP <= 0)
 		{
 			print("-2");
-			EndBattle();
+			LoseBattle();
+			return true;
+		}
+
+		if (_enemy.HP <= 0)
+		{
+			WinBattle();
 			return true;
 		}
 

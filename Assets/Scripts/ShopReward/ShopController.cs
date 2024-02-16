@@ -15,9 +15,13 @@ public class ShopController : MonoBehaviour
     public GameObject glow;
     private Player _player;
     public Ability selectedAbility;
+    public DiceCustomization diceCustom;
+    public List<GameObject> domedagen;
+    public Text quote;
 
     void Start()
     {
+
         OpenShop(new Player());
     }
 
@@ -69,20 +73,32 @@ public class ShopController : MonoBehaviour
         
     }
 
-    public void CompletePurchase()
-    {
-        _player.DieFragments -= 3;
-    }
 
     public void CloseShop()
     {
+        foreach (var victim in domedagen)
+        {
+            victim.gameObject.SetActive(false);
+        }
         foreach (var ability in abilitiesBought)
         {
-            // CustomiseDie(ability);
+            diceCustom.openMenu(ability, _player.Dice);
         }
-        hand.SetActive(false);
-        glow.SetActive(false);
+    }
 
+    public void BuyAbility()
+    {
+        if (_player.DieFragments >= selectedAbility.Cost)
+        {
+            _player.DieFragments -= selectedAbility.Cost;
+            glow.gameObject.SetActive(true);
+            abilitiesBought.Add(selectedAbility);
+            RemoveBoughtAbility();
+        }
+        else
+        {
+            Debug.Log("Cannot afford.");
+        }
     }
 
 

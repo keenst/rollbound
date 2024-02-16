@@ -16,18 +16,15 @@ public class RewardController : MonoBehaviour
     public bool[] shouldKeepAbilities = {true, true, true};
     public RewardButton[] rewardButtons = new RewardButton[3];
     public AbilityImages abilityImages;
+    public DiceCustomization diceCustom;
 
-    public DiceCustomization diceCustomiser;
+
     private Player player;
 
-    void Start()
-    {
-        OpenReward(new Player());
-        
-    }
 
     public void OpenReward(Player player)
     {
+        this.gameObject.SetActive(true);
         this.player = player;
         confirmButton.gameObject.SetActive(true);
         for (int i = 0; i < shouldKeepAbilities.Length; i++)
@@ -81,13 +78,14 @@ public class RewardController : MonoBehaviour
             x.image.color = Color.white;
             x.gameObject.SetActive(false);
         }
+        this.gameObject.SetActive(false);
 
         int go = 0;
         while (go < 3)
         {
             if (shouldKeepAbilities[go])
             {
-                // customiseDice(displayedAbilities[go]);
+                diceCustom.openMenu(displayedAbilities[go], player.Dice);
             }
 
             if (!shouldKeepAbilities[go])
@@ -108,9 +106,8 @@ public class RewardController : MonoBehaviour
 
             go++;
         }
-
         print(player.DieFragments);
         confirmButton.gameObject.SetActive(false);
-        //OpenReward(player);
+        
     }
 }
