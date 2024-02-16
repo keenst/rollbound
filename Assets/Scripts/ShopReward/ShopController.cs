@@ -18,6 +18,8 @@ public class ShopController : MonoBehaviour
     public DiceCustomization diceCustom;
     public List<GameObject> domedagen;
     public Text quote;
+    public Text abName;
+    public Text description;
 
     void Start()
     {
@@ -101,6 +103,19 @@ public class ShopController : MonoBehaviour
         }
     }
 
+    public void Dialogue()
+    {
+        abName.text = "Greetings.";
+        quote.text = "";
+        description.text = "Time is money.";
+    }
+
+    public void UpdateDialogue(Ability ability)
+    {
+        abName.text = ability.Name;
+        quote.text = ability.Quote;
+        description.text = ability.Description;
+    }
 
     public void MoveHand(Transform buttonTransform)
     {
