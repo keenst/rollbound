@@ -8058,58 +8058,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[0].Name
-      value: Bat
-      objectReference: {fileID: 0}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[1].Name
-      value: Final Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[2].Name
-      value: Lizard
-      objectReference: {fileID: 0}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[3].Name
-      value: Physical Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[4].Name
-      value: Spitter
-      objectReference: {fileID: 0}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[5].Name
-      value: Zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[0].Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1067106450b5ea549b508c453db2b8fb, type: 3}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[1].Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 05a16e80bafb40b44a9d150a5cbc8d93, type: 3}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[2].Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 14cc365d408e95246904cbb9d2fd0d0e, type: 3}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[3].Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e44c5f9fa22104444bd15249dd2274c7, type: 3}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[4].Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 864492df845e8054ab1329e5e5317095, type: 3}
-    - target: {fileID: 5782131794992012205, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
-      propertyPath: Dictionary.Array.data[5].Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: cc73f06372ea35c4ba20aed1c397c158, type: 3}
     - target: {fileID: 8691276967417572437, guid: cf5828117f2351b4ebf00cb112ff5972, type: 3}
       propertyPath: m_Name
       value: EnemyImages
