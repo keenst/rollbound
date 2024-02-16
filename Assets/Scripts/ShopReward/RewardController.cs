@@ -18,7 +18,8 @@ public class RewardController : MonoBehaviour
     public RewardButton[] rewardButtons = new RewardButton[3];
     public AbilityImages abilityImages;
     public DiceCustomization diceCustom;
-
+    public Text profitsTxt;
+    public int profits = 0;
 
     private Player player;
 
@@ -31,6 +32,7 @@ public class RewardController : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         this.player = player;
+        profitsTxt.gameObject.SetActive(true);
         confirmButton.gameObject.SetActive(true);
         for (int i = 0; i < shouldKeepAbilities.Length; i++)
         {
@@ -83,6 +85,7 @@ public class RewardController : MonoBehaviour
             x.image.color = Color.white;
             x.gameObject.SetActive(false);
         }
+        profitsTxt.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
 
         int go = 0;
