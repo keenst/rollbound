@@ -43,7 +43,7 @@ public static class Abilities
 
 	private static void Init()
 	{
-		_abilities.Add(new PhysicalAbility("Punch", CardRarity.Common, 1500f, "Don’t know why you’d need to learn how to punch…but allow me to demonstrate", "Deals minor physical damage", 10));
+		_abilities.Add(new PhysicalAbility("Punch", CardRarity.Common, 1.5f, "Don’t know why you’d need to learn how to punch…but allow me to demonstrate", "Deals minor physical damage", 10));
 		_abilities.Add(new PhysicalAbility("Bite", CardRarity.Common, 2, "Bite might be an understatement but…", "Bite deals decent physical damage", 10));
 		_abilities.Add(new PhysicalAbility("Crossbow", CardRarity.Common, 2.5f, "For killing more than just a pesky fly…", "Deals decent physical damage.", 10));
 		_abilities.Add(new PhysicalAbility("Sickle", CardRarity.Rare, 3, "Not for cutting hay I take it…?", "Deals decent physical damage", 20));
