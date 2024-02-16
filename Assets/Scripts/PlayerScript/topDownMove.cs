@@ -19,6 +19,7 @@ public class topDownMove : MonoBehaviour
     public Enters ent;
     public Enters _ent2;
     public Enters _ent3;
+    public Enters _ent4;
     float nrLevel;
     public RuntimeAnimatorController topDownController;
     public ShopController shop;
@@ -51,6 +52,10 @@ public class topDownMove : MonoBehaviour
             _ent3.exitCombat();
             ani.runtimeAnimatorController = topDownController;
         }
+        if(nrLevel == 4)
+        {
+            _ent4.exitCombat();
+        }
         print("0");
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -75,6 +80,11 @@ public class topDownMove : MonoBehaviour
                 e.lv1Start();
                 nrLevel = 3;
                 ani.SetBool("topDown", true);
+            }
+            if(e.lvName == "libry")
+            {
+                e.lv1Start();
+                nrLevel = 4;
             }
         }
         if(other.tag == "shot")

@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Combat
   - Entrance
+  - shot
   layers:
   - Default
   - TransparentFX

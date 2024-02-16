@@ -10,6 +10,7 @@ public class EnterShop : MonoBehaviour
     public int sceneBuildIndex;
     [SerializeField] Animator ani;
     [SerializeField] private GameObject startBg;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
