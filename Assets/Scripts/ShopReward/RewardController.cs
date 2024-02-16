@@ -89,7 +89,7 @@ public class RewardController : MonoBehaviour
         {
             if (shouldKeepAbilities[go])
             {
-                // customiseDice(displayedAbilities[go]);
+                diceCustom.openMenu(displayedAbilities[go], player.Dice);
             }
 
             if (!shouldKeepAbilities[go])
