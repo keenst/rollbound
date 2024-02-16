@@ -13,7 +13,6 @@ public class topDownMove : MonoBehaviour
     public Animator ani;
 	public Player Player;
 	public Transform startTransform;
-    bool hasPickedUpHat;
     public GameObject hatMenu;
     public Hat _hat;
     private bool hatMenuIsOpen = false;
@@ -21,6 +20,7 @@ public class topDownMove : MonoBehaviour
     public Enters _ent2;
     public Enters _ent3;
     float nrLevel;
+    public RuntimeAnimatorController topDownController;
 
     void Start()
     {
@@ -47,7 +47,7 @@ public class topDownMove : MonoBehaviour
         if(nrLevel == 3)
         {
             _ent3.exitCombat();
-            spriteRenderer.sprite = topDownPlayer;
+            ani.runtimeAnimatorController = topDownController;
         }
         print("0");
     }
@@ -72,16 +72,29 @@ public class topDownMove : MonoBehaviour
             {
                 e.lv1Start();
                 nrLevel = 3;
+                ani.SetBool("topDown", true);
             }
         }
     }
-    private void Awake()
-    {
-        
-    }
-
     void Update()
     {
+        /*if (Input.GetKeyDown(KeyCode.F))
+        {
+            if(nrLevel == 2)
+            {
+                _ent2.exitCombat();
+                nrLevel = 3;
+            }
+            else if(nrLevel == 3)
+            {
+                _ent3.exitCombat();
+            }
+            else
+            {
+                ent.exitCombat();
+                nrLevel = 2;
+            }
+        }*/
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rb.velocity = direction * speed;
         if(direction.x < 0)
