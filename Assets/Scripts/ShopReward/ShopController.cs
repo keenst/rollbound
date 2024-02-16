@@ -88,7 +88,7 @@ public class ShopController : MonoBehaviour
         {
             victim.SetActive(false);
         }
-        diceCustom.Open(abilitiesBought, _player.Dice);
+        diceCustom.Open(abilitiesBought, _player);
         this.gameObject.SetActive(false);
     }
 

@@ -17,17 +17,19 @@ public class DiceCustomization : MonoBehaviour
     public Button NewAbility;
     public AbilityImages abilityImages;
 	public List<Ability> abilityQueue;
+	public Player player;
 
-	public void Open(List<Ability> newAbilities, Dice dice)
+	public void Open(List<Ability> newAbilities, Player player)
 	{
 		abilityQueue = newAbilities;
+		this.dice = player.Dice;
+		this.player = player;
 		openMenu(abilityQueue[0], dice);
 	}
 
     public void openMenu(Ability newAbility, Dice dice)
     {
         currentAbility = newAbility;
-		this.dice = dice;
 		NewAbility.image.sprite = abilityImages.Get(newAbility.Name);
         activateComponents();
         Die die = dice.GetDie(DieType.Physical);
@@ -70,6 +72,7 @@ public class DiceCustomization : MonoBehaviour
     }
     private void replaceAbility(Ability ability, int sideIndex, Dice dice)
     {
+		Debug.Log(ability.Name);
         DieType dieType = ability switch
         {
             PhysicalAbility => DieType.Physical,
@@ -78,7 +81,7 @@ public class DiceCustomization : MonoBehaviour
             _ => DieType.Physical
         };
         Debug.Log("Side index: " + sideIndex);
-		dice.ChangeAbility(dieType, sideIndex, ability);
+		player.Dice.ChangeAbility(dieType, sideIndex - 1, ability);
     }
     public void RegisterSelectedSide(int sideIndex)
     {

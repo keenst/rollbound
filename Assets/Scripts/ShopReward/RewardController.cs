@@ -115,7 +115,7 @@ public class RewardController : MonoBehaviour
 
                 go++;
             }
-            diceCustom.Open(abilitiesToKeep, player.Dice);
+            diceCustom.Open(abilitiesToKeep, player);
             print(player.DieFragments);
             confirmButton.gameObject.SetActive(false);
 
