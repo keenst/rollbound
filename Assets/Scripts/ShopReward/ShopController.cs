@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
@@ -20,11 +22,13 @@ public class ShopController : MonoBehaviour
     public Text quote;
     public Text abName;
     public Text description;
+    public Text cost;
+    public Text playerMoney;
 
     void Start()
     {
 
-        OpenShop(new Player());
+        //OpenShop(new Player());
     }
 
     private void Update()
@@ -36,6 +40,7 @@ public class ShopController : MonoBehaviour
     // Generate abilities
     public void OpenShop(Player player)
     {
+        this.gameObject.SetActive(true);
         glow.SetActive(false);
         _player = player;
         hand.SetActive(true);
@@ -69,10 +74,11 @@ public class ShopController : MonoBehaviour
             }
             
         }
+        _player.DieFragments = 1000;
 
-        
+        Dialogue();
 
-        
+
     }
 
 
@@ -86,6 +92,7 @@ public class ShopController : MonoBehaviour
         {
             diceCustom.openMenu(ability, _player.Dice);
         }
+        this.gameObject.SetActive(false);
     }
 
     public void BuyAbility()
@@ -96,6 +103,7 @@ public class ShopController : MonoBehaviour
             glow.gameObject.SetActive(true);
             abilitiesBought.Add(selectedAbility);
             RemoveBoughtAbility();
+            glow.SetActive(false);
         }
         else
         {
@@ -108,13 +116,23 @@ public class ShopController : MonoBehaviour
         abName.text = "Greetings.";
         quote.text = "";
         description.text = "Time is money.";
+        cost.text = "";
+        playerMoney.text = _player.DieFragments.ToString();
     }
 
     public void UpdateDialogue(Ability ability)
     {
+        if (ability == null)
+        {
+            Dialogue();
+            return;
+        }
         abName.text = ability.Name;
         quote.text = ability.Quote;
+        print(ability.Quote);
         description.text = ability.Description;
+        cost.text = ability.Cost.ToString();
+        playerMoney.text = _player.DieFragments.ToString();
     }
 
     public void MoveHand(Transform buttonTransform)

@@ -42,6 +42,7 @@ public class ShopButton : MonoBehaviour
             controller.ClearSelect();
         }
 
+        controller.UpdateDialogue(controller.selectedAbility);
     }
 
 
