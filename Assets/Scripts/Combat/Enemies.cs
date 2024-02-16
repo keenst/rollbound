@@ -105,7 +105,7 @@ public static class Enemies
 					Abilities.GetFromName("Battle Boots"),
 					Abilities.GetFromName("Battle Boots"),
 					Abilities.GetFromName("Battle Boots"),
-					Abilities.GetFromName("Battle boots"),
+					Abilities.GetFromName("Battle Boots"),
 					Abilities.GetFromName("Broken Helmet"))),
 			maxHp: 20,
 			hp: 20));

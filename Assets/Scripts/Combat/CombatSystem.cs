@@ -81,12 +81,6 @@ public class CombatSystem : MonoBehaviour
 
 	private static Random _rng = new();
 
-	// TODO: Remove
-	public void Start()
-	{
-		OnStart(new Player(), Enemies.GetFromName("Test"));
-	}
-
 	public void OnStart(Player player, Fighter enemy)
 	{
 		_playerStats = player;

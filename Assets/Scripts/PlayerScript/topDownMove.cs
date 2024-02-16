@@ -5,7 +5,9 @@ using UnityEngine;
 public class topDownMove : MonoBehaviour
 {
     public Rigidbody2D rb;
-    //public SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
+    public Sprite topDownPlayer;
+    public Sprite normalPlayer;
     Vector2 direction;
     public float speed;
     public Animator ani;
@@ -23,12 +25,6 @@ public class topDownMove : MonoBehaviour
     void Start()
     {
         hatMenuIsOpen = false;
-
-    }
-    void enterLevel(string lvName)
-    {
-        print("UwU");
-        
 
     }
 	public void combatLose()
@@ -49,6 +45,7 @@ public class topDownMove : MonoBehaviour
         if(nrLevel == 3)
         {
             _ent3.exitCombat();
+            spriteRenderer.sprite = topDownPlayer;
         }
         print("0");
     }

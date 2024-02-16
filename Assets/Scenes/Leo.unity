@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: diceCustomiser
       value: 
       objectReference: {fileID: 5168643468670838109}
+    - target: {fileID: 834136392015161627, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
+      propertyPath: diceCustomization
+      value: 
+      objectReference: {fileID: 5168643468670838109}
     - target: {fileID: 942750396381676136, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3092,11 +3096,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8748dd46c21f0a43a508ba801d72755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SR: {fileID: 0}
+  hatSprit: {fileID: 0}
   pickebleHat: {fileID: 1049917796}
-  dunceHat: {fileID: 79351107}
+  hatButton: {fileID: 0}
   weareble: {fileID: 1115148717}
   hatManu: {fileID: 1761149752}
-  partyHat: {fileID: 352277171}
 --- !u!61 &1049917798
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3114,7 +3119,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.2, y: 9.2}
+    oldSize: {x: 0.76666665, y: 0.76666665}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6354,6 +6359,10 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1115148718}
   partyHatSprite: {fileID: 21300000, guid: a7c1ad8a665f6134c9e828c456f6c6fd, type: 3}
   dunceSpite: {fileID: 21300000, guid: 70bb9fc1b456aa448ace0c3389df3ab5, type: 3}
+  wizardSprite: {fileID: 0}
+  gibusSprite: {fileID: 0}
+  anitaSprite: {fileID: 0}
+  takeOffHat: {fileID: 0}
 --- !u!114 &1761149755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6444,6 +6453,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1766139394}
+  spriteRenderer: {fileID: 0}
+  topDownPlayer: {fileID: 0}
+  normalPlayer: {fileID: 0}
   speed: 4
   ani: {fileID: 1766139393}
   startTransform: {fileID: 0}
@@ -8101,11 +8113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8748dd46c21f0a43a508ba801d72755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SR: {fileID: 0}
+  hatSprit: {fileID: 0}
   pickebleHat: {fileID: 2118046109}
-  dunceHat: {fileID: 79351107}
+  hatButton: {fileID: 0}
   weareble: {fileID: 1115148717}
   hatManu: {fileID: 1761149752}
-  partyHat: {fileID: 79351107}
 --- !u!61 &2118046111
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8123,7 +8136,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.02, y: 7.63}
+    oldSize: {x: 0.8258824, y: 0.8976471}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
