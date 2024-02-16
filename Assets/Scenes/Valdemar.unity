@@ -525,7 +525,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
       propertyPath: _dictionary.Array.size
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
       propertyPath: _dictionary.Array.data[10].Card
@@ -568,6 +568,22 @@ PrefabInstance:
       value: Broken Helmet
       objectReference: {fileID: 0}
     - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[16].Card
+      value: 
+      objectReference: {fileID: 21300000, guid: dba88c4ffe8ea53419629a44b1248697, type: 3}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[16].Name
+      value: Sickle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[17].Card
+      value: 
+      objectReference: {fileID: 21300000, guid: 319345159148d7948aea72f969f3e6db, type: 3}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[17].Name
+      value: Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
       propertyPath: _dictionary.Array.data[10].Overlay
       value: 
       objectReference: {fileID: 21300000, guid: 59d1165a740e7f2428f0587450380444, type: 3}
@@ -587,6 +603,14 @@ PrefabInstance:
       propertyPath: _dictionary.Array.data[15].Overlay
       value: 
       objectReference: {fileID: 21300000, guid: a64a018290f07b148bc21c87cb18b954, type: 3}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[16].Overlay
+      value: 
+      objectReference: {fileID: 21300000, guid: 879c2a180f80aac4dbce6deb58224db6, type: 3}
+    - target: {fileID: 1523003564898239087, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
+      propertyPath: _dictionary.Array.data[17].Overlay
+      value: 
+      objectReference: {fileID: 21300000, guid: 3384ebd6a45f49040a3cd68e42d647ae, type: 3}
     - target: {fileID: 1523003564898239088, guid: 1ea9d5ebd72f94646b6dd1344e9a9853, type: 3}
       propertyPath: m_RootOrder
       value: 3
