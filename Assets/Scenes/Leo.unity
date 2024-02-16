@@ -1071,6 +1071,7 @@ MonoBehaviour:
   combat: {fileID: 1560306543}
   lightDarkness: {fileID: 219528904}
   darkness: {fileID: 1112575100}
+  enemyName: Bat
   combSystm: {fileID: 1560306541}
   x: 60
   y: -6
@@ -1932,6 +1933,7 @@ MonoBehaviour:
   combat: {fileID: 1560306543}
   lightDarkness: {fileID: 219528904}
   darkness: {fileID: 1112575100}
+  enemyName: Zombie
   combSystm: {fileID: 1560306541}
   x: 28
   y: -6
@@ -6774,6 +6776,7 @@ MonoBehaviour:
   combat: {fileID: 1560306543}
   lightDarkness: {fileID: 219528904}
   darkness: {fileID: 1112575100}
+  enemyName: Lizard
   combSystm: {fileID: 1560306541}
   x: 15
   y: -20
