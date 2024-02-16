@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rewards
       objectReference: {fileID: 0}
+    - target: {fileID: 958598372628379304, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2854ec59fb600d446a9f676a4443b6f7, type: 3}
 --- !u!224 &81490716 stripped
