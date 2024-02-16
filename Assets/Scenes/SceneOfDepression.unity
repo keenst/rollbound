@@ -460,6 +460,22 @@ PrefabInstance:
       propertyPath: abilityImages
       value: 
       objectReference: {fileID: 1889911038}
+    - target: {fileID: 6935566225874117896, guid: 74cca120066e2944ab6e2f431c8dd48c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935566225874117896, guid: 74cca120066e2944ab6e2f431c8dd48c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935566225874117896, guid: 74cca120066e2944ab6e2f431c8dd48c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.2753
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935566225874117896, guid: 74cca120066e2944ab6e2f431c8dd48c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.5507
+      objectReference: {fileID: 0}
     - target: {fileID: 7240330491123161085, guid: 74cca120066e2944ab6e2f431c8dd48c, type: 3}
       propertyPath: m_Name
       value: Customization
